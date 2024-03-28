@@ -11,13 +11,13 @@
 </head>
 <body>
 <header>
-<p>header!</p>
+header!
 </header>
 <main>
 <%block name="main"/>
 </main>
 <footer>
-<p>footer!</p>
+footer!
 </footer>
 </body>
 </html>
