@@ -4,8 +4,26 @@ body {
     overflow-y: scroll;
 }
 
+header {
+    align-items: center;
+    column-gap: 16px;
+    display: flex;
+    color: #505050;
+    margin: 8px;
+}
+
+header .title {
+    color: #000000;
+    font: bold 20px monospace;
+}
+
+footer {
+    margin: 8px;
+}
+
 main {
     background-color: #ffffff;
     border-bottom: solid #808080;
     border-top: solid #808080;
+    padding: 8px;
 }

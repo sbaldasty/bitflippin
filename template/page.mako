@@ -11,7 +11,11 @@
 </head>
 <body>
 <header>
-header!
+<img alt="Logo" class="logo" src="/logo.png" title="Logo" width="86px">
+<div>
+<div class="title">bitflippin.com</div>
+<div>My never complete personal website and portfolio</div>
+</div>
 </header>
 <main>
 <%block name="main"/>
