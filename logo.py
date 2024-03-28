@@ -26,7 +26,9 @@ def build_site_logo():
             fill=TRIM_COLOR,
             font=bigger_font)
 
-    image.save('out/logo.png', 'PNG')
+    path = 'out/logo.png'
+    image.save(path, 'PNG')
+    print(f'Added {path}')
 
 if __name__ == '__main__':
     build_site_logo()
