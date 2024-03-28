@@ -1,4 +1,5 @@
 # Scripts
 
-- **assets.py**: Builds (copies) static assets.
-- **logo.py**: Builds the site logo.
+- **assets.py**: Builds static assets by copying them to the output directory.
+- **logo.py**: Builds the site logo in the output directory.
+- **serve.py**: Starts a local web server on port 8000 based in the output directory.
