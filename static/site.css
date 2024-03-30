@@ -6,9 +6,10 @@ body {
 
 header {
     align-items: center;
+    border-bottom: solid #808080;
+    color: #505050;
     column-gap: 16px;
     display: flex;
-    color: #505050;
     margin: 8px;
 }
 
@@ -18,12 +19,12 @@ header .title {
 }
 
 footer {
+    border-top: solid #808080;
+    color: #505050;
     margin: 8px;
 }
 
 main {
     background-color: #ffffff;
-    border-bottom: solid #808080;
-    border-top: solid #808080;
     padding: 8px;
 }
