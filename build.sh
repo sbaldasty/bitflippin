@@ -12,4 +12,4 @@ python logo.py
 python headshot.py
 
 # TODO This is temporary
-python demo.py
+python article.py the-information
