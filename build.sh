@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Remove the output directory
+rm -rf out
+
+# Create or recreate the output directory
+mkdir out
+
+# Build the site in the output directory
+python assets.py
+python logo.py
+
+# TODO This is temporary
+python demo.py
