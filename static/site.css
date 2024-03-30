@@ -20,18 +20,22 @@ header .title {
 
 footer {
     align-items: center;
-    column-gap: 16px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin: 8px;
     padding-top: 16px;
+    row-gap: 16px;
     text-align: center;
 }
 
 footer .author {
     font-size: large;
     font-weight: bold;
-    padding-bottom: 8px;
+}
+
+footer .author img {
+    border-radius: 20px;
 }
 
 footer .biography {
@@ -40,8 +44,11 @@ footer .biography {
     max-width: 480px;
 }
 
-footer .headshot {
-    border-radius: 20px;
+footer .social-media {
+    column-gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 main {
