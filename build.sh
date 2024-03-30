@@ -9,6 +9,7 @@ mkdir out
 # Build the site in the output directory
 python assets.py
 python logo.py
+python headshot.py
 
 # TODO This is temporary
 python demo.py

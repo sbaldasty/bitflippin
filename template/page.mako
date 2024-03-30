@@ -14,14 +14,18 @@
 <img alt="Logo" class="logo" src="/logo.png" title="Logo" width="86px">
 <div>
 <div class="title">bitflippin.com</div>
-<div>My never complete personal website and portfolio</div>
+<div>My evolving personal website and portfolio</div>
 </div>
 </header>
 <main>
 <%block name="main"/>
 </main>
 <footer>
-footer!
+<div>
+<div class="author">Steven Baldasty</div>
+<div class="biography">Proud father, Barefoot runner, Chocolate enthusiast, Seasoned software engineer, Starry eyed PhD student, Novice human</div>
+</div>
+<img alt="Headshot" class="headshot" src="/headshot.jpg" title="Getting my picture taken in Burlington" width="86px">
 </footer>
 </body>
 </html>

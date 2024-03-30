@@ -10,6 +10,7 @@ header {
     column-gap: 16px;
     display: flex;
     margin: 8px;
+    padding-bottom: 16px;
 }
 
 header .title {
@@ -18,8 +19,29 @@ header .title {
 }
 
 footer {
-    color: #505050;
+    align-items: center;
+    column-gap: 16px;
+    display: flex;
+    justify-content: center;
     margin: 8px;
+    padding-top: 16px;
+    text-align: center;
+}
+
+footer .author {
+    font-size: large;
+    font-weight: bold;
+    padding-bottom: 8px;
+}
+
+footer .biography {
+    color: #505050;
+    font-style: italic;
+    max-width: 480px;
+}
+
+footer .headshot {
+    border-radius: 20px;
 }
 
 main {
