@@ -12,4 +12,4 @@ python logo.py
 python headshot.py
 
 # TODO This is temporary
-python article.py the-information
+python article.py information-theory-in-history-and-museums
