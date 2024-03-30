@@ -1,13 +1,10 @@
 from pathlib import Path
-from bflib.image import build_image
-
-WIDTH = 86
-HEIGHT = 86
+from bflib.image import *
 
 def build_headshot():
-    src = Path.home().joinpath('CAMERA/00000000.JPG')
+    src = camera_resource('00000000')
     dest = Path('out/headshot.jpg')
-    build_image(dest, src, 0, 20, 328, 0, WIDTH, HEIGHT)
+    build_image(dest, src, 0, 20, 328, 0, HEADSHOT_WIDTH, HEADSHOT_HEIGHT)
 
 if __name__ == '__main__':
     build_headshot()

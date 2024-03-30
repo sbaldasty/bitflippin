@@ -8,7 +8,7 @@ def build_article(lookup: TemplateLookup, name: str):
     base = Path(f'out/{name}')
     base.mkdir(parents=True, exist_ok=True)
     path = base.joinpath('index.html')
-    path.write_bytes(template.render())
+    path.write_bytes(template.render(name=name))
     print(f'Added {path}')
 
 if __name__ == '__main__':
