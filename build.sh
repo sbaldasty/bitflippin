@@ -6,10 +6,13 @@ rm -rf out
 # Create or recreate the output directory
 mkdir out
 
-# Build the site in the output directory
+# Build common resources the output directory
 python assets.py
 python logo.py
 python headshot.py
 
-# TODO This is temporary
-python article.py information-theory-in-history-and-museums
+# Build articles
+for f in article/*.mako; do
+    bn=$(basename -- $f)
+    python article.py "${bn%.*}"
+done
