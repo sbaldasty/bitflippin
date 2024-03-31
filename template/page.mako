@@ -1,3 +1,9 @@
+<%!
+    from bflib.image import HEADSHOT_WIDTH
+
+    enable_article_ = False
+    enable_gallery_ = False
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,12 +13,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="Steven Baldasty">
 <link rel="icon" type="image/x-icon" href="/logo.png">
-<link rel="stylesheet" href="/site.css">
-<%block name="pageResources"/>
+<link rel="stylesheet" href="/page.css">
+% if self.attr.enable_article_:
+    <link rel="stylesheet" href="/article.css">
+% endif
+% if self.attr.enable_gallery_:
+    <link rel="stylesheet" href="/gallery.css">
+% endif
 </head>
 <body>
 <header>
-<%! from bflib.image import HEADSHOT_WIDTH %>
 <img alt="Logo" class="logo" src="/logo.png" title="Logo" width="${HEADSHOT_WIDTH}px">
 <div>
 <div class="title">bitflippin.com</div>

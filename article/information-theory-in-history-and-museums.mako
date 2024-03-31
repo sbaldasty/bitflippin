@@ -1,12 +1,10 @@
 <%!
     title_ = 'Information theory in history and museums'
     date_ = '2023-08-09'
+    enable_gallery_ = True
 %>
 <%inherit file="article.mako" />
 <%namespace name="gallery" file="gallery.mako" />
-<%block name="articleResources">
-    <link rel="stylesheet" href="/gallery.css">
-</%block>
 <%block name="article">
     <p>asdf content!</p>
     <%gallery:gallery fn="campus-at-dusk" fid="00000001" x="200" y="0" width="2900" angle="0">
