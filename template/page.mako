@@ -12,7 +12,8 @@
 </head>
 <body>
 <header>
-<img alt="Logo" class="logo" src="/logo.png" title="Logo" width="86px">
+<%! from bflib.image import HEADSHOT_WIDTH %>
+<img alt="Logo" class="logo" src="/logo.png" title="Logo" width="${HEADSHOT_WIDTH}px">
 <div>
 <div class="title">bitflippin.com</div>
 <div>My evolving personal website and portfolio</div>
