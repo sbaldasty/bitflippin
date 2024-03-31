@@ -13,6 +13,7 @@ main .gallery {
 
 main .gallery .expo {
     flex: 1 1 280px;
+    padding-right: 8px;
 }
 
 main .gallery .title {
