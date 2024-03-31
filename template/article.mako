@@ -1,6 +1,7 @@
 <%inherit file="page.mako" />
-<%block name="resources">
+<%block name="pageResources">
     <link rel="stylesheet" href="/article.css">
+    <%block name="articleResources"/>
 </%block>
 <%block name="main">
     <div class="article-date">${self.attr.date_}</div>

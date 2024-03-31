@@ -8,7 +8,7 @@
 <meta name="author" content="Steven Baldasty">
 <link rel="icon" type="image/x-icon" href="/logo.png">
 <link rel="stylesheet" href="/site.css">
-<%block name="resources"/>
+<%block name="pageResources"/>
 </head>
 <body>
 <header>
