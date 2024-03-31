@@ -6,8 +6,8 @@
         build_photo(fn, fid, int(x), int(y), int(width), int(angle))
     %>
     <div class="gallery">
-    <img alt="${caller.title()}" height="${PHOTO_HEIGHT}px" src="/_photo/${fn}.jpg" title="${caller.title()}" width="${PHOTO_WIDTH}px">
-    <div>
+    <img style="" alt="${caller.title()}" height="${PHOTO_HEIGHT}px" src="/_photo/${fn}.jpg" title="${caller.title()}" width="${PHOTO_WIDTH}px">
+    <div class="expo">
     <div class="title">${caller.title()}</div>
     <div>${caller.caption()}</div>
     </div>

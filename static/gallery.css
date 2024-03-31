@@ -3,6 +3,7 @@ main .gallery {
     color: #390347;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 16px;
     margin-bottom: -8px;
     margin-left: -8px;
@@ -10,9 +11,14 @@ main .gallery {
     width:100%;
 }
 
+main .gallery .expo {
+    flex: 1 1 280px;
+}
+
 main .gallery .title {
     font-size: large;
     font-weight: bold;
+    margin-bottom: 8px;
 }
 
 main .gallery img {

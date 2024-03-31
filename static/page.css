@@ -7,10 +7,15 @@ body {
 header {
     align-items: center;
     color: #505050;
-    column-gap: 16px;
+    gap: 16px;
     display: flex;
+    flex-wrap: wrap;
     margin: 8px;
     padding-bottom: 16px;
+}
+
+header .expo {
+    flex: 1 1 0;
 }
 
 header .title {
