@@ -5,10 +5,8 @@ main .gallery {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 16px;
-    margin-bottom: -8px;
-    margin-left: -8px;
+    margin: 0 -8px -8px -8px;
     padding: 16px;
-    width:100%;
 }
 
 main .gallery .expo {
