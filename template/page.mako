@@ -1,5 +1,5 @@
 <%!
-    from bflib.image import HEADSHOT_WIDTH
+    from bflib import HEADSHOT_WIDTH
 
     enable_article_ = False
     enable_gallery_ = False

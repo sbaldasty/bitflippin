@@ -1,8 +1,8 @@
 <%def name="gallery(fn, fid, x, y, width, angle)">
     <%
-        from bflib.image import build_photo
-        from bflib.image import PHOTO_HEIGHT
-        from bflib.image import PHOTO_WIDTH
+        from bflib import build_photo
+        from bflib import PHOTO_HEIGHT
+        from bflib import PHOTO_WIDTH
         build_photo(fn, fid, int(x), int(y), int(width), int(angle))
     %>
     <div class="gallery">

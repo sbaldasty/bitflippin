@@ -1,5 +1,5 @@
 from pathlib import Path
-from bflib.image import *
+from bflib import *
 
 def build_headshot():
     src = camera_resource('00000000')
