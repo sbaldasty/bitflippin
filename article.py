@@ -1,15 +1,11 @@
-from mako.lookup import TemplateLookup
+from bflib import build_page
 from pathlib import Path
+from mako.lookup import TemplateLookup
 
 import sys
 
 def build_article(lookup: TemplateLookup, name: str):
-    template = lookup.get_template(f'{name}.mako')
-    base = Path(f'out/{name}')
-    base.mkdir(parents=True, exist_ok=True)
-    path = base.joinpath('index.html')
-    path.write_bytes(template.render(name=name))
-    print(f'Added {path}')
+    build_page(lookup, name, Path(name))
 
 if __name__ == '__main__':
     name = sys.argv[1]
