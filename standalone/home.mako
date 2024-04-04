@@ -3,5 +3,9 @@
 %>
 <%inherit file="page.mako" />
 <%block name="main">
-<h1>Homepage</h1>
+<p>There are only a couple posts here at the moment. There are...</p>
+<ul>
+<li><a href="time-release-lock">Time release lock</a>
+<li><a href="information-theory-in-history-and-museums">Information theory in history and museums</a>
+</ul>
 </%block>
