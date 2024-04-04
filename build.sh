@@ -6,6 +6,9 @@ rm -rf out
 # Create or recreate the output directory
 mkdir out
 
+# Build homepage
+python home.py
+
 # Build common resources the output directory
 python assets.py
 python logo.py
