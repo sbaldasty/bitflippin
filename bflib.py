@@ -23,6 +23,8 @@ def build_image(
     image = image.rotate(angle, expand=True)
     image = image.crop((x, y, x + width, y + width * trg_height / trg_width))
     image = image.resize((trg_width, trg_height))
+    outpath = OUTPUT_PATH.joinpath(outpath)
+    outpath.parent.mkdir(parents=True, exist_ok=True)
     image.save(outpath, quality=75)
     print(f'Added {outpath}')
 

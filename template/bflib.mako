@@ -5,9 +5,7 @@
         from pathlib import Path
 
         src = camera_resource(fid)
-        base = Path('out/_photo')
-        base.mkdir(parents=True, exist_ok=True)
-        dest = base.joinpath(f'{fn}.jpg')
+        dest = Path(f'_photo/{fn}.jpg')
         build_image(dest, src, int(x), int(y), int(width), int(angle), PHOTO_WIDTH, PHOTO_HEIGHT)
     %>
     <div class="gallery">
