@@ -23,7 +23,9 @@
 </head>
 <body>
 <header>
+<a href="/">
 <img alt="Logo" class="logo" src="/logo.png" title="Logo" width="${HEADSHOT_WIDTH}px">
+</a>
 <div class="expo">
 <div class="title">bitflippin.com</div>
 <div>My evolving personal website and portfolio</div>
