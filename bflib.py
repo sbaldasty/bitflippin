@@ -33,10 +33,3 @@ def build_page(lookup: TemplateLookup, name: str, path: Path):
     path = path.joinpath('index.html')
     path.write_bytes(template.render())
     print(f'Added {path}')
-
-def build_photo(name: str, id: str, x: int, y: int, width: int, angle: int):
-    src = camera_resource(id)
-    base = Path('out/_photo')
-    base.mkdir(parents=True, exist_ok=True)
-    dest = base.joinpath(f'{name}.jpg')
-    build_image(dest, src, x, y, width, angle, PHOTO_WIDTH, PHOTO_HEIGHT)
