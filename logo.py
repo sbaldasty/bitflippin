@@ -1,3 +1,5 @@
+from bflib import *
+
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
@@ -26,7 +28,7 @@ def build_site_logo():
             fill=TRIM_COLOR,
             font=bigger_font)
 
-    path = 'out/logo.png'
+    path = f'{OUTPUT_PATH}/logo.png'
     image.save(path, 'PNG')
     print(f'Added {path}')
 
