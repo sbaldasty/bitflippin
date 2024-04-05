@@ -1,3 +1,5 @@
+import htmlmin
+
 from PIL import Image
 from pathlib import Path
 from mako.lookup import Template
@@ -33,5 +35,10 @@ def build_page(lookup: TemplateLookup, name: str, path: Path):
     path = OUTPUT_PATH.joinpath(path)
     path.mkdir(parents=True, exist_ok=True)
     path = path.joinpath('index.html')
-    path.write_bytes(template.render())
+    html = template.render().decode('utf-8')
+
+    path.write_text(htmlmin.minify(html,
+            remove_comments=True,
+            remove_all_empty_space=True))
+
     print(f'Added {path}')
