@@ -10,6 +10,7 @@ These are the pip-installable packages used to build the website.
 
 - **Mako**: HTML templating engine.
 - **PIL**: Image manipulation.
+- **htmlmin**: Minify HTML output.
 
 ### Filesystem
 

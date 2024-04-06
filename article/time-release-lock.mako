@@ -6,6 +6,18 @@
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />
 <%block name="article">
+
+    <p>I feel grateful to live in a time and place where food is abundant. In theory, I could enjoy eating just enough. I could enjoy sharing meals with family and friends. I could enjoy the health benefits good nutrition brings. In practice, the draw toward delicious tastes is powerful. Sugar, especially, offers a strange temporarily escape from stress and sadness. I ate chocolate by the bar. I ate ice cream by the carton. I ate it alone in the morning. I ate it alone at night. Together with aging and a more sedentary lifestyle, my choices began to affect energy level and mood. Eventually they even began to affect my weight.</p>
+
+    <p>Even though I wanted to eat less sugar, I could not control myself.</p>
+
+    <%bflib:gap/>
+    <%bflib:gallery fn="open-time-release-lock" fid="00000006" x="1000", y="1020", width="2900", angle="75">
+        <%def name="title()">Basic features</%def>
+        <%def name="caption()">I bought this lock on Amazon. It is sturdy and has worked reliably for several years. It has a simple digital display, and buttons for setting and starting the timer. It beeps, but the beeping can be silenced.</%def>
+    </%bflib:gallery>
+    <%bflib:gap/>
+
     <p>A younger me ate chocolate by the bar and ice cream by the carton. Nothing I ate seemed to hurt me. But eventually, too much junk food began to negatively affected my mood. It also began to negatively affect my weight. I knew I needed to change my habits, but like all humans I was drawn strongly to the pleasures of delicious tastes - and of filling my stomach. I wanted to continue to enjoy my favorite sugary snacks, but I wanted to enjoy them responsibly; unfortunately, willpower could only help me so much.</p>
 
     <p>Thankfully there are other approaches besides willpower to get ourselves to behave in a way we know is best. There are <a href="https://medium.com/behavior-design-hub/your-commitment-devices-database-35a54df3a64f">commitment devices</a>, which are decisions we make in the present that limit what decisions we can make in the future. Time release locks are an example of a commitment device. They are locks that require no key or combination; instead, they open automatically when a timer expires. They are often used to control access to cigarettes and addictive prescription medicines. I learned they work quite well for junk food too.</p>
@@ -27,9 +39,5 @@
     <%bflib:gallery fn="toolbox-of-chocolate" fid="00000005" x="0", y="1150", width="2980", angle="0">
         <%def name="title()">Stocking the container</%def>
         <%def name="caption()">Restock infrequently to minimize your free access to junk food; but when you do, fill the container completely. Take advantage of good sales and bulk deals.</%def>
-    </%bflib:gallery>
-    <%bflib:gallery fn="open-time-release-lock" fid="00000006" x="1000", y="1020", width="2900", angle="75">
-        <%def name="title()">Basic features</%def>
-        <%def name="caption()">This lock is currently available on Amazon for under $25. It is sturdy and has worked reliably for several years. It has a simple digital display, and buttons for setting and starting the timer.</%def>
     </%bflib:gallery>
 </%block>

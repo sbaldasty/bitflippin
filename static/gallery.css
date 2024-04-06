@@ -5,7 +5,7 @@ main .gallery {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 16px;
-    margin: 0 -8px -8px -8px;
+    margin: 0 -8px 0 -8px;
     padding: 16px;
 }
 
@@ -23,4 +23,8 @@ main .gallery .title {
 main .gallery img {
     border: 1px solid #390347;
     border-radius: 4px;
+}
+
+main .gap {
+    margin-bottom: 32px;
 }

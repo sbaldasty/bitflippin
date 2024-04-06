@@ -16,3 +16,6 @@
     </div>
     </div>
 </%def>
+<%def name="gap()">
+    <div class="gap"></div>
+</%def>

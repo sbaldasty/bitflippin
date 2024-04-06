@@ -7,6 +7,7 @@
 <%namespace name="bflib" file="bflib.mako" />
 <%block name="article">
     <p>Information Theory was one of the first <a href="https://www.uvm.edu/courses/ee_272">classes</a> I took at the University of Vermont. It was about thinking of information as bits and, taking out of the picture any meaning the bits might have, considering how to measure the quantity of the information, how to store or transmit it efficiently, and how to do so with redundancy in a way that protects it from corruption from noise.</p>
+    <h2>The history of humans and information</h2>
     <p>The class was mostly technical and math oriented. It covered <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">entropy</a> and related ideas. However its supplementary readings included a phenomenal less technical <a href="https://www.amazon.com/Information-History-Theory-Flood/dp/1400096235">book</a> called <i>The Information: A History, A Theory, A Flood</i> by James Gleik. The book tells the story of humanity's rapidly quickening dance with information, with countless anecdotes, from ancient history to the present day. Each step brought profound societal changes, and affected the thinking of everyday people in big ways. A few of my favorites were</p>
     <ul>
     <li><p>How in Africa, drums using two pitches could spread news between villages. African drumming was for centuries a long-unparalleled means of communication over enormous distances.</p>
@@ -25,6 +26,7 @@
         <%def name="title()">Information theory textbook</%def>
         <%def name="caption()">My caption 1</%def>
     </%bflib:gallery>
+    <h2>Visiting the Museum of Printing</h2>
     <p>On a recent visit with my parents, we visited the <a href="https://museumofprinting.org/">Museum of Printing</a>. Like the New Hampshire Telephone Museum <a href="/nh-telephone-museum/">described earlier</a>, the exhibits here dovetailed very nicely with the <a href="https://www.amazon.com/Information-History-Theory-Flood/dp/1400096235">book</a> <i>The Information: A History, A Theory, A Flood</i>. From its About Page,</p>
     <blockquote>The Museum of Printing is dedicated to preserving the rich history of the graphic arts, printing and typesetting technology, and printing craftsmanship. In addition to many special collections and small exhibits, the Museum contains hundreds of antique printing, typesetting, and bindery machines, as well as a library of books and printing-related documents.</blockquote>
     <p>I highly recommend visiting this museum for its fascinating hands-on exhibits and the friendly knowledgeable staff who gladly answer questions and offer guided tours. The kinds of artifacts on display and the explanations accompanying them run both broad and deep. Someone even walked me through the process of making a cast of my name from molten metal in the same way an operator would prepare a page for mass production. Afterward they could melt it down again and repeat, but I got to keep mine!</p>
@@ -64,6 +66,7 @@
         <%def name="title()">asdf</%def>
         <%def name="caption()">asdf</%def>
     </%bflib:gallery>
+    <h2>Visiting the New Hampshire Telephone Museum</h2>
     <p>The last time I saw my parents, we visited the <a href="https://www.nhtelephonemuseum.org/">New Hampshire Telephone Museum</a> together. I recommend visiting the museum to anyone interested learning about the history of telegraphs and telephones from knowledgeable staff, or seeing firsthand some of the fascinating artifacts on which our communications infrastructure is built, past and present. There were also several hands-on demos: telegraphs, manual switchboards, automated switchboards, and early coin operated telephones.</p><p>Beyond that, I had a special reason to take interest in the Telephone Museum. I <a href="/history-of-information/">posted recently</a> on a class I took about Information Theory that I took, and how one of the supplemental readings told through countless anecdotes how information-related technologies changed the world many times over. Well naturally, the exhibits on display in this museum bring to life a wide and important swath of that history. There is even a whole room dedicated to the life of Alexander Bell.</p>
     <%bflib:gallery fn="telegraph-demo" fid="00000015" x="300" y="300" width="3400" angle="0">
         <%def name="title()">Telegraph</%def>
@@ -97,4 +100,5 @@
         <%def name="title()">Outside the museum</%def>
         <%def name="caption()">asdf</%def>
     </%bflib:gallery>
+    <h2>The future of humans and information</h2>
 </%block>
