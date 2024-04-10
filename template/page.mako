@@ -28,7 +28,7 @@
 </a>
 <div class="expo">
 <div class="title">bitflippin.com</div>
-<div>My evolving personal website and portfolio</div>
+<div>Evolving personal website and portfolio</div>
 </div>
 </header>
 <main>
