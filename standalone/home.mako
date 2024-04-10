@@ -6,6 +6,6 @@
 <p>There are only a couple posts here at the moment. There are...</p>
 <ul>
 <li><a href="time-release-lock">Time release lock</a>
-<li><a href="information-theory-in-history-and-museums">Information theory in history and museums</a>
+<li><a href="information-theory">Information theory</a>
 </ul>
 </%block>
