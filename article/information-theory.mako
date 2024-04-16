@@ -31,7 +31,7 @@
 
     <h2>The Museum of Printing</h2>
 
-    <p>You can visit the <a href="https://museumofprinting.org/">Museum of Printing</a> in Haverhill, Massachusetts. It has fascinating hands-on exhibits, and knowledgeable staff who are happy to answer questions and offer guided tours. From its About Page,</p>
+    <p>The <a href="https://museumofprinting.org/">Museum of Printing</a> is in Haverhill, Massachusetts. It has fascinating hands-on exhibits, and knowledgeable staff who are happy to answer questions and offer guided tours. From its About Page,</p>
 
     <blockquote>The Museum of Printing is dedicated to preserving the rich history of the graphic arts, printing and typesetting technology, and printing craftsmanship. In addition to many special collections and small exhibits, the Museum contains hundreds of antique printing, typesetting, and bindery machines, as well as a library of books and printing-related documents.</blockquote>
 
@@ -70,15 +70,11 @@
         <%def name="title()">Typewriters</%def>
         <%def name="caption()">My parents posing near a wall of typewriters similar to the one I used in childhood to type papers for school. I remember the smell of the ink, the feel of the keys, and fixing errors with the eraser of a pencil.</%def>
     </%bflib:gallery>
-    <%bflib:gallery fn="another-printing-press" fid="00000022" x="100" y="300" width="2600" angle="0">
-        <%def name="title()">Another printing press</%def>
-        <%def name="caption()">Dad knew someone who operated a printing press similar to this.</%def>
-    </%bflib:gallery>
     <%bflib:gap/>
 
     <h2>The New Hampshire Telephone Museum</h2>
 
-    <p>The last time I saw my parents, we visited the <a href="https://www.nhtelephonemuseum.org/">New Hampshire Telephone Museum</a> together. I recommend visiting the museum to anyone interested learning about the history of telegraphs and telephones from knowledgeable staff, or seeing firsthand some of the fascinating artifacts on which our communications infrastructure is built, past and present. There were also several hands-on demos: telegraphs, manual switchboards, automated switchboards, and early coin operated telephones.</p><p>Beyond that, I had a special reason to take interest in the Telephone Museum. I <a href="/history-of-information/">posted recently</a> on a class I took about Information Theory that I took, and how one of the supplemental readings told through countless anecdotes how information-related technologies changed the world many times over. Well naturally, the exhibits on display in this museum bring to life a wide and important swath of that history. There is even a whole room dedicated to the life of Alexander Bell.</p>
+    <p>The <a href="https://www.nhtelephonemuseum.org/">New Hampshire Telephone Museum</a> is in Warner, New Hampshire. I recommend visiting the museum to anyone interested learning about the history of telegraphs and telephones; or seeing firsthand some of the fascinating artifacts on which our communications infrastructure is built, past and present. They also have several hands-on demos: telegraphs, manual switchboards, automated switchboards, and early coin operated telephones. There is even a whole room dedicated to the life of Alexander Bell.</p>
 
     <%bflib:gap/>
     <%bflib:gallery fn="telegraph-demo" fid="00000015" x="300" y="300" width="3400" angle="0">
@@ -109,14 +105,10 @@
         <%def name="title()">Newer telephone</%def>
         <%def name="caption()">This more modern telephone is similar to those I used growing up. Users had to spin the dial for each digit in the number they wanted to call, and when they released it, the phone sent a different number of clicks over the line.</%def>
     </%bflib:gallery>
-    <%bflib:gallery fn="outside-telephone-museum" fid="00000023" x="100" y="0" width="3700" angle="0">
-        <%def name="title()">Outside the museum</%def>
-        <%def name="caption()">asdf</%def>
-    </%bflib:gallery>
     <%bflib:gap/>
 
-    <h2>The future of humans and information</h2>
+    <h2>The unknowable future</h2>
 
-    <p>Among the final ideas presented in the book is that when information is scarce and difficult to access it is expensive; but when information is plentiful and easy to access then attention is expensive. I wonder here at the cusp of what seems to be real artificial intelligence in what novel ways generations after us will relate to information.</p>
+    <p><i>The Information: A History, A Theory, A Flood</i> and the two museums tell a story of the past; but they also raise important questions about the future. Technological innovation happens quickly now, so where will it go next? Among the final ideas presented in the book is that when information is scarce and difficult to access it is expensive; but when information is plentiful and easy to access then attention is expensive. I wonder here at the cusp of what seems to be real artificial intelligence in what novel ways generations after us will relate to information.</p>
 
 </%block>
