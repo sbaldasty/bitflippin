@@ -23,6 +23,7 @@ These scripts can be run from the command line.
 - **article.py**: Builds an article in the output directory, given a mako template path.
 - **assets.py**: Builds static assets by copying them to the output directory.
 - **build.sh**: Recreates the entire site from scratch in the output directory.
+- **deploy.sh**: Pushes the built site to github, which deploys the site automatically.
 - **headshot.py**: Builds the headshot that appears in the footer of every page.
 - **home.py**: Builds the homepage in the output directory.
 - **logo.py**: Builds the site logo in the output directory.
