@@ -5,11 +5,11 @@
         from pathlib import Path
 
         src = camera_resource(fid)
-        dest = Path(f'_photo/{fn}.jpg')
+        dest = Path(f'photo/{fn}.jpg')
         build_image(dest, src, int(x), int(y), int(width), int(angle), PHOTO_WIDTH, PHOTO_HEIGHT)
     %>
     <div class="gallery">
-    <img alt="${caller.title()}" height="${PHOTO_HEIGHT}px" src="/_photo/${fn}.jpg" title="${caller.title()}" width="${PHOTO_WIDTH}px">
+    <img alt="${caller.title()}" height="${PHOTO_HEIGHT}px" src="/photo/${fn}.jpg" title="${caller.title()}" width="${PHOTO_WIDTH}px">
     <div class="expo">
     <div class="title">${caller.title()}</div>
     <div>${caller.caption()}</div>
