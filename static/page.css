@@ -63,6 +63,10 @@ main {
     padding: 8px;
 }
 
+aside {
+    color: #505050;
+}
+
 blockquote {
     border: solid #e7e7e7;
     border-left-width: 16px;
