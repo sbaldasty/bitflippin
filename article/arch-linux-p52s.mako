@@ -1,9 +1,18 @@
 <%!
     title_ = 'Installing Arch Linux on a Lenovo Thinkpad P52s'
     date_ = '2024-04-22'
+    enable_custom_ = True
 %>
+<%def name="swiftie()"><span class="hostname">swiftie</span></%def>
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />
+<%block name="custom">
+    <style>
+        .hostname {
+            color: green;
+        }
+    </style>
+</%block>
 <%block name="article">
     <aside>The process I present here is a patchwork of building blocks from around the internet. Some are customized. I include links along the way for attribution and further reading.</aside>
 
@@ -29,11 +38,11 @@
     </ul>
     TODO Show the partitions?
     <h2>asdf</h2>
-    <pre>hostname swiftie</pre>
+    <pre>hostname <% swiftie() %></pre>
     <h2>Install packages</h2>
     <p>base stuff</p>
     <pre>asdf</pre>
-    <p>We have internet access now, but only because we booted from the installation media: <font color="green">swiftie</font> does not yet have the requisite packages for internet access, and when we eventually reboot without the installation media we will be offline. Different guides suggest different package options here, but <code>iwd</code> is contemporary and sufficient. We install <code>iwd</code> now, and will configure it when we boot into the system for the first time.</p>
+    <p>We have internet access now, but only because we booted from the installation media: <% swiftie() %> does not yet have the requisite packages for internet access, and when we eventually reboot without the installation media we will be offline. Different guides suggest different package options here, but <code>iwd</code> is contemporary and sufficient. We install <code>iwd</code> now, and will configure it when we boot into the system for the first time.</p>
     <pre>pacman -S iwd</pre>
     <p>For the same reason, we will lose access to <code>nano</code> too when we reboot without the installation media. Since editing configuration files will be among our first priorities, we install <code>nano</code> now. Alternatively we could choose a different text editor.</p>
     <pre>pacman -S nano</pre>
@@ -47,7 +56,7 @@
     <h2>Configure wifi</h2>
     asdf
     <pre>systemctl enable iwd</pre>
-    We want internet access now though, without having to reboot <font color="green">swiftie</font> again, so we start the <code>iwd</code> service manually.
+    We want internet access now though, without having to reboot <% swiftie() %> again, so we start the <code>iwd</code> service manually.
     <pre>systemctl start iwd</pre>
     <p>Now we can connect to a wifi network using the <code>iwctl</code> client.</p>
     asdf
