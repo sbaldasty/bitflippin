@@ -21,9 +21,6 @@
 % if self.attr.enable_gallery_:
     <link rel="stylesheet" href="/gallery.css">
 % endif
-% if self.attr.enable_custom_:
-    <%block name="custom"/>
-% endif
 </head>
 <body>
 <header>
