@@ -1,3 +1,14 @@
+<%def name="codesnippet()">
+    <%
+        from pygments import highlight
+        from pygments.lexers import BashLexer
+        from pygments.formatters import HtmlFormatter
+
+        body = capture(caller.body)
+    %>
+    ${highlight(body.strip(), BashLexer(), HtmlFormatter())}
+</%def>
+
 <%def name="gallery(fn, fid, x, y, width, angle)">
     <%
         from bflib import build_image, camera_resource
@@ -16,6 +27,7 @@
     </div>
     </div>
 </%def>
+
 <%def name="gap()">
     <div class="gap"></div>
 </%def>

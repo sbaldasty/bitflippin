@@ -13,6 +13,7 @@ python home.py
 python assets.py
 python logo.py
 python headshot.py
+python codesnippets.py
 
 # Build articles
 for f in article/*.mako; do

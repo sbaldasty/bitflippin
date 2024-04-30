@@ -2,8 +2,8 @@
     from bflib import HEADSHOT_WIDTH
 
     enable_article_ = False
-    enable_custom_ = False
     enable_gallery_ = False
+    enable_codesnippets_ = False
 %>
 <!DOCTYPE html>
 <html>
@@ -20,6 +20,9 @@
 % endif
 % if self.attr.enable_gallery_:
     <link rel="stylesheet" href="/gallery.css">
+% endif
+% if self.attr.enable_codesnippets_:
+    <link rel="stylesheet" href="/codesnippets.css">
 % endif
 </head>
 <body>

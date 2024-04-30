@@ -7,7 +7,7 @@
 <%namespace name="bflib" file="bflib.mako" />
 <%block name="article">
 
-    <p>I took a class about Information Theory at the University of Vermont. It was a technical class: framing all information as bits absent any <i>meaning</i>, considering how to measure the quantity of the information, how to store or transmit it efficiently, and how to do so with redundancy in a way that protects it from corruption from noise.</p>
+    <p>I took a class about Information Theory at the University of Vermont. It was a technical class: framing all information as bits absent any meaning, considering how to measure the quantity of the information, how to store or transmit it efficiently, and how to do so with redundancy in a way that protects it from corruption from noise.</p>
 
     <p>In contrast, one of the supplementary resources for the class was a far less technical book called <a href="https://en.wikipedia.org/wiki/The_Information:_A_History,_a_Theory,_a_Flood"><i>The Information: A History, A Theory, A Flood</i></a> by James Gleik. The book tells the story of humanity's rapidly quickening dance with information, with countless anecdotes, from ancient history to the present day. Each step brought profound societal changes, and affected the thinking of everyday people in big ways. A few of my favorites were</p>
 
