@@ -1,4 +1,4 @@
-<%def name="codesnippet()">
+<%def name="codesnippet(lang)">
     <%
         from pygments import highlight
         from pygments.lexers import BashLexer

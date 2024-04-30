@@ -20,7 +20,7 @@
     <p>TODO Discuss selecting boot device</p>
     <p>We will need to internet connectivity for installing packages later. Assuming we have access to a wifi network, we run
     <%bflib:codesnippet lang="bash">
-$ iwctl --passphrase MyPassphrase station wlan0 connect MyNetwork
+iwctl --passphrase MyPassphrase station wlan0 connect MyNetwork
     </%bflib:codesnippet>
 
     <h2>Partitions</h2>
@@ -77,20 +77,17 @@ passwd
     </%bflib:codesnippet>
 Set the time zone:
 
-<%bflib:codesnippet lang="bash">
-
-# ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
-
+    <%bflib:codesnippet lang="bash">
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
     </%bflib:codesnippet>
 Run hwclock(8) to generate /etc/adjtime:
-<%bflib:codesnippet lang="bash">
-
-# hwclock --systohc
-
+    <%bflib:codesnippet lang="bash">
+hwclock --systohc
     </%bflib:codesnippet>
 Edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 and other needed UTF-8 locales. Generate the locales by running:
-
-# locale-gen
+    <%bflib:codesnippet lang="bash">
+locale-gen
+    </%bflib:codesnippet>
 
     <h2>Ramdisk</h2>
     <p>Since editing configuration files will be among our first priorities, we install <code>nano</code> now. Alternatively we could choose a different text editor like <code>vi</code> or <code>vim</code>.</p>
@@ -126,19 +123,19 @@ pacman -S grub efibootmgr
     </%bflib:codesnippet>
     Edit the /etc/default/grub file. The line GRUB_ENABLE_CRYPTODISK=y should be uncommented, and I also changed the GRUB_CMDLINE_LINUX line:
 
-<%bflib:codesnippet lang="bash">
+    <%bflib:codesnippet lang="bash">
 GRUB_CMDLINE_LINUX="cryptdevice=/dev/nvme0n1p3:luks"
     </%bflib:codesnippet>
 Once those modifications are done (or not), you need to install the grub:
 
-<%bflib:codesnippet lang="bash">
+    <%bflib:codesnippet lang="bash">
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub
 grub-mkconfig -o /boot/grub/grub.cfg
     </%bflib:codesnippet>
 
     <h2>Rebooting</h2>
 You can now exit the chroot (Ctrl+D or exit), umount the disks (umount -R /mnt) and reboot your computer.
-<%bflib:codesnippet lang="bash">
+    <%bflib:codesnippet lang="bash">
 reboot
     </%bflib:codesnippet>
 TODO Talk about restoring bios settings

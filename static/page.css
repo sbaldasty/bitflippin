@@ -63,8 +63,11 @@ main {
     padding: 8px;
 }
 
-aside {
-    color: #505050;
+.highlight pre {
+    border: 1px solid #808080;
+    border-radius: 2px;
+    padding: 5px;
+    white-space: pre-wrap;
 }
 
 blockquote {
