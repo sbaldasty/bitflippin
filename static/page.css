@@ -77,3 +77,7 @@ blockquote {
     margin: auto;
     padding: 8px;
 }
+
+code, kbd {
+    color: green;
+}

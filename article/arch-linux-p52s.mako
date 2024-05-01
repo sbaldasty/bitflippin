@@ -18,69 +18,71 @@
     <h2>Preliminaries</h2>
     <p>TODO Discuss disabling secure boot</p>
     <p>TODO Discuss selecting boot device</p>
-    <p>We will need to internet connectivity for installing packages later. Assuming we have access to a wifi network, we run
-    <%bflib:codesnippet lang="bash">
-iwctl --passphrase MyPassphrase station wlan0 connect MyNetwork
-    </%bflib:codesnippet>
 
     <h2>Partitions</h2>
     <p>Worth mentioning but hopefully already well understood, <strong>this process erases any and all data currently on our disk</strong>. We mostly follow <a href="https://tforgione.fr/posts/arch-linux-encrypted/">Thomas Forgione's post</a> here, especially for <code>dmcrypt</code> - with the exception that we choose a <code>btrfs</code> filesystem for our root partition to support our goal of snapshotting later. The device corresponding to our disk is <code>/dev/nvme0n1</code>.</p>
     <%bflib:codesnippet lang="bash">
 fdisk /dev/nvme0n1
     </%bflib:codesnippet>
-    <p>We find ourselves in an interactive shell. Our tasks here are to</p>
+    <p>We find ourselves in the <code>fdisk</code> interactive shell. Our tasks here are to</p>
     <ul>
-    <li><p><b>Delete all existing partitions.</b> Our disk likely contains some partitions already, which we will remove. We enter <code>d</code> and accept the default partition number repeatedly, until there are no partitions left to delete.</p>
-    <li><p><b>Create a boot partition.</b> Our bootloader will live here. The associated device will be <code>/dev/nvme0n1p1</code>, and we will mount it to <code>/boot/efi</code>. We enter <code>n</code> to create a partition, accept the default partition number, accept the default starting sector, and enter <code>+100M</code> for the size. If asked about removing an existing signature, we enter <code>y</code>.</p>
-    <li><p><b>Create a root partition.</b> Binaries, global configuration, and logs will live here. The associated device will be <code>/dev/nvme0n1p2</code>, and we will mount it to <code>/</code>. We enter <code>n</code> to create a partition, accept the default partition number, accept the default starting sector, and enter <code>+50G</code> for the size. If asked about removing an existing signature, we enter <code>y</code>.</p>
-    <li><p><b>Create a home partition.</b> User files will live here. This partition will be the largest, occupying all the remaining space on the disk. The associated device will be <code>/dev/nvme0n1p3</code>. We enter <code>n</code> to create a partition, accept the default partition number, accept the default starting cluster, and accept the default ending sector. If asked about removing an existing signature, we enter <code>y</code>.</p>
-    <li><p><b>Save changes.</b> We optionally enter <code>p</code> to view our proposed changes to the partition table. We enter <code>w</code> to write these changes to the disk and exit <code>fdisk</code>.</p>
+    <li><p><b>Delete all existing partitions.</b> Our disk likely contains some partitions already, which we will remove. We enter <kbd>d</kbd> and accept the default partition number repeatedly, until there are no partitions left to delete.</p>
+    <li><p><b>Create a boot partition.</b> Our bootloader will live here. The associated device will be <code>/dev/nvme0n1p1</code>, and we will mount it to <code>/boot/efi</code>. We enter <kbd>n</kbd> to create a partition, accept the default partition number, accept the default starting sector, and enter <kbd>+100M</kbd> for the size. If asked about removing an existing signature, we enter <kbd>y</kbd>.</p>
+    <li><p><b>Create a root partition.</b> Binaries, global configuration, and logs will live here. The associated device will be <code>/dev/nvme0n1p2</code>, and we will mount it to <code>/</code>. We enter <kbd>n</kbd> to create a partition, accept the default partition number, accept the default starting sector, and enter <kbd>+50G</kbd> for the size. If asked about removing an existing signature, we enter <kbd>y</kbd>.</p>
+    <li><p><b>Create a home partition.</b> User files will live here. This partition will be the largest, occupying all the remaining space on the disk. The associated device will be <code>/dev/nvme0n1p3</code>. We enter <kbd>n</kbd> to create a partition, accept the default partition number, accept the default starting cluster, and accept the default ending sector. If asked about removing an existing signature, we enter <kbd>y</kbd>.</p>
+    <li><p><b>Save changes.</b> We optionally enter <kbd>p</kbd> to view our proposed changes to the partition table. We enter <kbd>w</kbd> to write these changes to the disk and exit <code>fdisk</code>.</p>
     </ul>
-    <p>Attackers with physical access can still access data outside the home directory though, such as what software is installed and anything in log files. TODO note typing YES in capital letters for luksFormat, note passphrase for luksFormat...</p>
+    <p>Next we set up encryption on <code>/dev/nvme0n1p3</code>, which will become our home partition. As a caveat, this only protects data within our home directories. Attackers with physical access to the computer can still access data on other parts of the file system. They can see what software is installed, for instance, and anything in the log files. The gist is that we will encrypt the partition with <code>cryptsetup luksFormat</code>, and then use <code>cryptsetup luksOpen</code> to create a new device called <code>/dev/mapper/luks_home</code> which we can use to interact with <code>/dev/nvme0n1p1</code> in its decrypted form. The <code>cryptsetup luksFormat</code> utility asks us to create a password when we format the partition, and we subsequently have to supply that password every time we run <code>cryptsetup luksOpen</code>.
     <%bflib:codesnippet lang="bash">
 cryptsetup luksFormat /dev/nvme0n1p3
 cryptsetup luksOpen /dev/nvme0n1p3 luks_home
     </%bflib:codesnippet>
-    <p>TODO Describe...</p>
+    <p>Now we can format the partitions. We choose a <code>vfat</code> filesystem for the boot partition, to support the <code>grub</code> bootloader. We choose a <code>btrfs</code> filesystem for the root partition, to support system snapshots. We choose the standard <code>ext4</code> filesystem for the home partition, noting we use <code>/dev/mapper/luks_home</code> to access that partition now. Finally we mount all the partitions.</p>
     <%bflib:codesnippet lang="bash">
 mkfs.vfat -F32 /dev/nvme0n1p1
 mkfs.btrfs /dev/nvme0n1p2
 mkfs.ext4 /dev/mapper/luks_home
-    </%bflib:codesnippet>
-    <p>TODO Describe...</p>
-<%bflib:codesnippet lang="bash">
+
 mount /dev/nvme0n1p2 /mnt
 mount --mkdir /dev/nvme0n1p1 /mnt/boot/efi
 mount --mkdir /dev/mapper/luks_home /mnt/home
     </%bflib:codesnippet>
 
     <h2>Installation</h2>
-    <p>TODO Describe... Some warnings about <i>possibly missing firmware</i> appear during the <code>mkinitcpio</code> build. We fill some of these gaps later.</p>
+    <p>We connect to the internet, assuming we have access to a wifi network called <code>MyNetwork</code> with a passphrase <code>MyPassphrase</code>.</p>
+    <%bflib:codesnippet lang="bash">
+iwctl --passphrase MyPassphrase station wlan0 connect MyNetwork
+    </%bflib:codesnippet>
+    <p>We now install Arch. The installation automatically runs <code>mkinitcpio</code> to build a ramdisk, but the ramdisk it builds is not sufficient, because of our encrypted home partition. Some warnings about <i>possibly missing firmware</i> also appear during the <code>mkinitcpio</code> run. We fill some of these gaps later.</p>
     <%bflib:codesnippet lang="bash">
 pacstrap -K /mnt base linux linux-firmware
     </%bflib:codesnippet>
-    <p>TODO Describe...</p>
-    <%bflib:codesnippet lang="bash">
-genfstab -Up /mnt >> /mnt/etc/fstab
-    </%bflib:codesnippet>
-    <p>Afterwards and optionally, if we want to see the generated <code>fstab</code> we enter
+    <p>Now we populate <code>fstab</code>, which describes how our partitions should be mounted. We can optionally view the <code>fstab</code> before and after we populate it.
     <%bflib:codesnippet lang="bash">
 cat /mnt/etc/fstab
+genfstab -Up /mnt >> /mnt/etc/fstab
+cat /mnt/etc/fstab
     </%bflib:codesnippet>
-    <p>TODO Describe...</p>
+    <p>We enter the installed system with <code>arch-chroot</code>. We subsequently follow a series of configuration steps suggested in the installation guide.</p>
     <%bflib:codesnippet lang="bash">
 arch-chroot /mnt
     </%bflib:codesnippet>
-    <p>TODO Describe... enter same password twice for root user</p>
+    <p>Since editing configuration files will be among our first priorities, having a terminal-based text editor will be helpful. We install <code>nano</code> now (alternatively we could choose a different text editor like <code>vi</code>).</p>
+    <%bflib:codesnippet lang="bash">
+pacman -S nano
+    </%bflib:codesnippet>
+    <p>We set a password for the root user.</p>
     <%bflib:codesnippet lang="bash">
 passwd
     </%bflib:codesnippet>
-Set the time zone:
-
+    <p>We find the region and city that best fit our own by browsing the available regions and cities with <code>ls</code>. Assuming we live in region <code>Region</code> and near city <code>City</code>, we set our time zone.
     <%bflib:codesnippet lang="bash">
+ls /usr/share/zoneinfo
+ls /usr/share/zoneinfo/City
+
 ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
     </%bflib:codesnippet>
-Run hwclock(8) to generate /etc/adjtime:
+    <p>We generate the file <code>/etc/adjtime</code> per the installation guide.
     <%bflib:codesnippet lang="bash">
 hwclock --systohc
     </%bflib:codesnippet>
@@ -90,10 +92,6 @@ locale-gen
     </%bflib:codesnippet>
 
     <h2>Ramdisk</h2>
-    <p>Since editing configuration files will be among our first priorities, we install <code>nano</code> now. Alternatively we could choose a different text editor like <code>vi</code> or <code>vim</code>.</p>
-    <%bflib:codesnippet lang="bash">
-pacman -S nano
-    </%bflib:codesnippet>
     <p>On the line that starts with <code>HOOKS</code>, add <code>encrypt</code> between <code>block</code> and <code>filesystems</code>.</p>
     <%bflib:codesnippet lang="bash">
 nano /etc/mkinitcpio.conf
@@ -110,7 +108,7 @@ pacman -S iwd
     </%bflib:codesnippet>
     <p>TODO Describe...</p>
     <%bflib:codesnippet lang="bash">
-echo <i>hostname</i> &gt; /etc/hostname
+echo <i>hostname</i> > /etc/hostname
     </%bflib:codesnippet>
     <p>TODO Describe...</p>
     <%bflib:codesnippet lang="bash">
