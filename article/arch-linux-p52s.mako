@@ -43,7 +43,6 @@ mkfs.vfat -F32 /dev/nvme0n1p1
 mkfs.btrfs /dev/nvme0n1p2
 mkfs.ext4 /dev/mapper/luks_home
 
-
 mount /dev/nvme0n1p2 /mnt
 mount --mkdir /dev/nvme0n1p1 /mnt/boot/efi
 mount --mkdir /dev/mapper/luks_home /mnt/home
@@ -150,11 +149,19 @@ exit
     <p>asdf</p>
 
     <hr>
-    <p>There are still a number of things I want to understand better and add to my post:</p>
+    <p>Things left to do before I publish:</p>
+    <ul>
+    <li>Complete the <b>Preliminaries</b> section
+    <li>Complete the <b>Bootloader</b> section
+    <li>Complete the <b>Reboot</b> section
+    </ul>
+    <p>Things left to do after I publish:</p>
     <ul>
     <li>What about GRUB_CMDLINE_LINUX_DEFAULT in /etc/default/grub?
     <li>What about further customizing grub?
     <li>Audit other mkinitcpio issues like fsck?
+    <li>Hardware support?
+    <li>Docking station with three monitors?
     </ul>
 
 </%block>
