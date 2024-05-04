@@ -26,6 +26,7 @@
 % endif
 </head>
 <body>
+<div class="content">
 <header>
 <a href="/">
 <img alt="Logo" class="logo" src="/logo.png" title="Logo" width="${HEADSHOT_WIDTH}px">
@@ -52,5 +53,6 @@
 <a href="https://twitter.com/sbaldasty"><img alt="Twitter" height="24px" src="/twitter.svg" title="Twitter" width="24px"></a>
 </div>
 </footer>
+</div>
 </body>
 </html>

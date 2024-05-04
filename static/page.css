@@ -1,7 +1,14 @@
 body {
-    background-color: #e7e7e7;
+    background-color: #808080;
+    display: flex;
+    justify-content: center;
     margin: 0;
     overflow-y: scroll;
+}
+
+body .content {
+    background-color: #e7e7e7;
+    max-width: 800px;
 }
 
 header {
