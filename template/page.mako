@@ -26,6 +26,7 @@
 % endif
 </head>
 <body>
+<div class="container">
 <div class="content">
 <header>
 <a href="/">
@@ -53,6 +54,7 @@
 <a href="https://twitter.com/sbaldasty"><img alt="Twitter" height="24px" src="/twitter.svg" title="Twitter" width="24px"></a>
 </div>
 </footer>
+</div>
 </div>
 </body>
 </html>

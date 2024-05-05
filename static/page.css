@@ -1,3 +1,7 @@
+body, html {
+    height: 100%;
+}
+
 body {
     background-color: #808080;
     display: flex;
@@ -6,9 +10,19 @@ body {
     overflow-y: scroll;
 }
 
-body .content {
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.content {
     background-color: #e7e7e7;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     max-width: 800px;
+    width: 100%;
 }
 
 header {

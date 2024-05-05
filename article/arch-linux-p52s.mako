@@ -146,7 +146,7 @@ exit
     </%bflib:codesnippet>
 
     <h2>Snapshots</h2>
-    <p>asdf</p>
+    <p>TODO Discuss <code>snapper</code></p>
 
     <hr>
     <p>Things left to do before I publish:</p>
