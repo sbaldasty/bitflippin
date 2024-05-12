@@ -31,3 +31,22 @@
 <%def name="gap()">
     <div class="gap"></div>
 </%def>
+
+<%def name="headline(aid)">
+    <%
+        from mako.lookup import TemplateLookup
+
+        lookup = TemplateLookup(
+            directories=['article', 'template'],
+            output_encoding='utf-8',
+            encoding_errors='replace')
+        
+        template = lookup.get_template(f'{aid}.mako')
+    %>
+    <div class="headline">
+    <div class="title">
+    <a href="${aid}">${template.module.title_}</a>
+    </div>
+    <div>${capture(caller.body)}</div>
+    </div>
+</%def>

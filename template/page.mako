@@ -4,6 +4,7 @@
     enable_article_ = False
     enable_gallery_ = False
     enable_codesnippets_ = False
+    enable_headline_ = False
 %>
 <!DOCTYPE html>
 <html>
@@ -23,6 +24,9 @@
 % endif
 % if self.attr.enable_codesnippets_:
     <link rel="stylesheet" href="/codesnippets.css">
+% endif
+% if self.attr.enable_headline_:
+    <link rel="stylesheet" href="/headline.css">
 % endif
 </head>
 <body>

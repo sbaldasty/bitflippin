@@ -1,0 +1,9 @@
+main .headline {
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+main .headline .title {
+    font-size: large;
+    font-weight: bold;
+}

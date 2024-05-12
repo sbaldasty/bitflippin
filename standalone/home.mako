@@ -1,12 +1,17 @@
 <%!
     title_ = 'Home'
+    enable_headline_ = True
 %>
+<%namespace name="bflib" file="bflib.mako" />
 <%inherit file="page.mako" />
 <%block name="main">
-<p>There are only a couple posts here at the moment. There are...</p>
-<ul>
-<li><a href="time-release-lock">Time release lock</a>
-<li><a href="information-theory">Information theory</a>
-<li><a href="arch-linux-p52s">Arch Linux on Thinkpad P52s</a>
-</ul>
+<%bflib:headline aid="arch-linux-p52s">
+<div>Notes from my installation of Arch Linux</div>
+</%bflib:headline>
+<%bflib:headline aid="information-theory">
+<div>Fanboy post about the history of information theory and related museums in New England</div>
+</%bflib:headline>
+<%bflib:headline aid="time-release-lock">
+<div>Limiting per day junk food consumption with a time release lock</div>
+</%bflib:headline>
 </%block>
