@@ -1,5 +1,5 @@
 <%!
-    title_ = 'Arch Linux on a Lenovo Thinkpad P52s'
+    title_ = 'Arch Linux on Lenovo Thinkpad P52s'
     date_ = '2024-04-22'
     enable_codesnippets_ = True
 %>
@@ -20,7 +20,7 @@
     <p>TODO Discuss selecting boot device</p>
 
     <h2>Partitions</h2>
-    <p>Worth mentioning but hopefully already well understood, <strong>this process erases any and all data currently on our disk</strong>. We mostly follow <a href="https://tforgione.fr/posts/arch-linux-encrypted/">Thomas Forgione's post</a> here, especially for <code>dmcrypt</code> - with the exception that we choose a <code>btrfs</code> filesystem for our root partition to support our goal of snapshotting later. The device corresponding to our disk is <code>/dev/nvme0n1</code>.</p>
+    <p>Worth mentioning but hopefully already well understood, <strong>this process erases any and all data currently on our disk</strong>. We mostly follow <a href="https://tforgione.fr/posts/arch-linux-encrypted/">Thomas Forgione</a> here, especially for <code>dmcrypt</code> - with the exception that we choose a <code>btrfs</code> filesystem for our root partition to support our goal of snapshotting later. The device corresponding to our disk is <code>/dev/nvme0n1</code>.</p>
     <%bflib:codesnippet lang="bash">
 fdisk /dev/nvme0n1
     </%bflib:codesnippet>
@@ -78,7 +78,6 @@ pacman -S vi
 passwd
     </%bflib:codesnippet>
     <p>We find the region and city that best fit our own by browsing the available regions and cities with <code>ls</code>. Assuming we live in region <code>MyRegion</code> and near city <code>MyCity</code>, we set our time zone.
-    <p>We find the region and city that best fit our own by browsing the available regions and cities with <code>ls</code>. Assuming we live in region <code>Region</code> and near city <code>City</code>, we set our time zone.
     <%bflib:codesnippet lang="bash">
 ls /usr/share/zoneinfo
 ls /usr/share/zoneinfo/MyRegion
@@ -95,25 +94,16 @@ vi /etc/locale.gen
 locale-gen
     </%bflib:codesnippet>
 
-    <h2>Ramdisk</h2>
-    <p>Edit <code>/etc/mkinitcpio.conf</code>, adding <code>encrypt</code> to the line that starts with <code>HOOKS</code>, between <code>block</code> and <code>filesystems</code>. Then rebuild the ramdisk. This change will prompt us for a password to decrypt the home partition on startup, but the warnings about unsupported hardware still appear.</p>
-    <p>On the line that starts with <code>HOOKS</code>, add <code>encrypt</code> between <code>block</code> and <code>filesystems</code>.</p>
+    <h2>Ramdisk &amp; Bootloader</h2>
+    <p>We might expect an operating system to simply load, but a more sophisticated setup using components called a bootloader and initial ramdisk is necessary. The details and choices are easy to get lost in, but <a href="https://forum.osdev.org/viewtopic.php?t=33029">Brendan</a> and others discuss the nuances and responsibilities of these components. We choose <code>grub</code> for our bootloader and again follow <a href="https://tforgione.fr/posts/arch-linux-encrypted/">Thomas Forgione</a> for help with our encrypted home directories.</p>
+    <p>Edit <code>/etc/mkinitcpio.conf</code>. On the line that starts with <code>HOOKS</code>, add <kbd>encrypt</kbd> between <code>block</code> and <code>filesystems</code>. Then rebuild the ramdisk. This change will prompt us for a password to decrypt the home partition on startup, but the warnings about unsupported hardware still appear.</p>
     <%bflib:codesnippet lang="bash">
 vi /etc/mkinitcpio.conf
 mkinitcpio -P
-    </%bflib:codesnippet>
 
-    <h2>Bootloader</h2>
-    <%bflib:codesnippet lang="bash">
 pacman -S grub efibootmgr
     </%bflib:codesnippet>
-    Edit the /etc/default/grub file. The line GRUB_ENABLE_CRYPTODISK=y should be uncommented, and I also changed the GRUB_CMDLINE_LINUX line:
-
-    <%bflib:codesnippet lang="bash">
-GRUB_CMDLINE_LINUX="cryptdevice=/dev/nvme0n1p3:luks"
-    </%bflib:codesnippet>
-Once those modifications are done (or not), you need to install the grub:
-
+    Edit <code>/etc/default/grub</code> file. Uncomment the line <code>GRUB_ENABLE_CRYPTODISK=y</code>, and change the line starting with <code>GRUB_CMDLINE_LINUX</code> to read <code>GRUB_CMDLINE_LINUX="cryptdevice=/dev/nvme0n1p3:luks"</code>. Finally we install grub and create its configuration.</p>
     <%bflib:codesnippet lang="bash">
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -129,8 +119,10 @@ echo MyHostname > /etc/hostname
     </%bflib:codesnippet>
 
     <h2>Rebooting</h2>
-You can now exit the chroot (Ctrl+D or exit), umount the disks (umount -R /mnt) and reboot your computer.
+    We now return to the original shell, unmount the disks, and reboot the laptop.
     <%bflib:codesnippet lang="bash">
+exit
+umount -R /mnt
 reboot
     </%bflib:codesnippet>
 TODO Talk about restoring bios settings
@@ -149,19 +141,14 @@ exit
     <p>TODO Discuss <code>snapper</code></p>
 
     <hr>
-    <p>Things left to do before I publish:</p>
-    <ul>
-    <li>Complete the <b>Preliminaries</b> section
-    <li>Complete the <b>Bootloader</b> section
-    <li>Complete the <b>Reboot</b> section
-    </ul>
-    <p>Things left to do after I publish:</p>
+    <p>Things left to do add:</p>
     <ul>
     <li>What about GRUB_CMDLINE_LINUX_DEFAULT in /etc/default/grub?
     <li>What about further customizing grub?
     <li>Audit other mkinitcpio issues like fsck?
     <li>Hardware support?
     <li>Docking station with three monitors?
+    <li>And so many more...
     </ul>
 
 </%block>

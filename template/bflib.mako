@@ -1,12 +1,12 @@
 <%def name="codesnippet(lang)">
     <%
         from pygments import highlight
-        from pygments.lexers import BashLexer
+        from pygments.lexers.special import TextLexer
         from pygments.formatters import HtmlFormatter
 
         body = capture(caller.body)
     %>
-    ${highlight(body.strip(), BashLexer(), HtmlFormatter())}
+    ${highlight(body.strip(), TextLexer(), HtmlFormatter())}
 </%def>
 
 <%def name="gallery(fn, fid, x, y, width, angle)">
