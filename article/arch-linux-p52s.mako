@@ -6,13 +6,13 @@
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />
 <%block name="article">
-    <p>Arch is about building a system from the ground up, adding and configuring one small piece at a time. It is a fun hobby, but like any hobby, it is also something of a time sink - especially considering the availability of high quality ready-to-use Linux distributions out there. This process documents my current setup and learning, and the device names are specific to my hardware. The process is a patchwork of building blocks captured and customized from around the internet. I usually include links along the way for attribution and further reading.</p>
+    <p>Arch is a good distribution for learning Linux. It offers the chance to build a system from the ground up, adding and configuring one component at a time, with the help of a well maintained wiki. Understanding the comonents and how they interact is a fun hobby, but also something of a time sink - especially considering the availability of other high quality Linux distributions out there, that come ready to use. I document here my process of setting up Arch. The device names are specific to my hardware. My process comes from the wiki and from various sources from around the internet. I include links along the way for attribution and further reading.</p>
 
     <h2>Overview</h2>
-    <p>We start with the installation image already on a USB thumb drive. How to reach that point depends on what operating system we have available to download the image and restore it to the thumb drive. The <a href="https://wiki.archlinux.org/title/Installation_guide#Acquire_an_installation_image">installation image section</a> of the official guide can help. We finish when we can boot into the system as a non-root user who has internet access and can run <code>sudo</code>. Our installation has two notable features:</p>
+    <p>I start with the installation image already on a USB thumb drive. How to reach that point depends on the operating system available to download the image and restore it to the thumb drive. The <a href="https://wiki.archlinux.org/title/Installation_guide#Acquire_an_installation_image">installation image section</a> of the official guide can help. I finish with booting into the system as a non-root user who has internet access and can run <code>sudo</code>. My installation has two notable features:</p>
     <ul>
-    <li><p><b>Encrypted home directories.</b> We use <code>dmcrypt</code> to encrypt all home directory data at rest, meaning attackers with physical access to the laptop cannot remove the disk and read the data without getting past the encryption first. Legitimate users enter a password on startup to decrypt the home directories.</p>
-    <li><p><b>Snapshot support.</b> When experimenting with software packages and configurations, reverting system changes can be daunting and error-prone. Allegedly even routine updates sometimes break the system. We use a <code>btrfs</code> partition and <code>snapper</code> to revert unwanted changes reliably, and practice system recovery.</p>
+    <li><p><b>Encrypted home directories.</b> I use <code>dmcrypt</code> to encrypt all home directory data at rest, meaning attackers with physical access to the laptop cannot remove the disk and read the data without getting past the encryption first. Such attackers can still read and write data on other parts of the file system, however. For instance they can see installed software, read any sensitive data that may have leaked into the logs, or make arbitrary modifications to the system including installing malware. Legitimate users enter a password on startup to decrypt the home directories.</p>
+    <li><p><b>Snapshot support.</b> Experimenting with software packages and configurations risks leaving the system in an unusable state. Even routine updates can sometimes break the system, allegedly. I use a <code>btrfs</code> root partition and a utility called <code>snapper</code> to revert unwanted changes reliably. I practice reverting a mock unwanted change in this way at the end of the article.</p>
     </ul>
 
     <h2>Preliminaries</h2>
@@ -20,24 +20,24 @@
     <p>TODO Discuss selecting boot device</p>
 
     <h2>Partitions</h2>
-    <p>Worth mentioning but hopefully already well understood, <strong>this process erases any and all data currently on our disk</strong>. We mostly follow <a href="https://tforgione.fr/posts/arch-linux-encrypted/">Thomas Forgione</a> here, especially for <code>dmcrypt</code> - with the exception that we choose a <code>btrfs</code> filesystem for our root partition to support our goal of snapshotting later. The device corresponding to our disk is <code>/dev/nvme0n1</code>.</p>
+    <p>Worth mentioning but hopefully already well understood, <strong>this process erases any and all data currently on the disk</strong>. I mostly follow <a href="https://tforgione.fr/posts/arch-linux-encrypted/">Thomas Forgione</a> here, especially for <code>dmcrypt</code> - with the exception that I choose a <code>btrfs</code> filesystem for our root partition to support the goal of snapshotting later. The device corresponding to our disk is <code>/dev/nvme0n1</code>.</p>
     <%bflib:codesnippet lang="bash">
 fdisk /dev/nvme0n1
     </%bflib:codesnippet>
-    <p>We find ourselves in the <code>fdisk</code> interactive shell. Our tasks here are to</p>
+    <p>I now find myself in a <code>fdisk</code> interactive shell. My tasks here are to</p>
     <ul>
-    <li><p><b>Delete all existing partitions.</b> Our disk likely contains some partitions already, which we will remove. We enter <kbd>d</kbd> and accept the default partition number repeatedly, until there are no partitions left to delete.</p>
-    <li><p><b>Create a boot partition.</b> Our bootloader will live here. The associated device will be <code>/dev/nvme0n1p1</code>, and we will mount it to <code>/boot/efi</code>. We enter <kbd>n</kbd> to create a partition, accept the default partition number, accept the default starting sector, and enter <kbd>+100M</kbd> for the size. If asked about removing an existing signature, we enter <kbd>y</kbd>.</p>
-    <li><p><b>Create a root partition.</b> Binaries, global configuration, and logs will live here. The associated device will be <code>/dev/nvme0n1p2</code>, and we will mount it to <code>/</code>. We enter <kbd>n</kbd> to create a partition, accept the default partition number, accept the default starting sector, and enter <kbd>+50G</kbd> for the size. If asked about removing an existing signature, we enter <kbd>y</kbd>.</p>
-    <li><p><b>Create a home partition.</b> User files will live here. This partition will be the largest, occupying all the remaining space on the disk. The associated device will be <code>/dev/nvme0n1p3</code>. We enter <kbd>n</kbd> to create a partition, accept the default partition number, accept the default starting cluster, and accept the default ending sector. If asked about removing an existing signature, we enter <kbd>y</kbd>.</p>
-    <li><p><b>Save changes.</b> We optionally enter <kbd>p</kbd> to view our proposed changes to the partition table. We enter <kbd>w</kbd> to write these changes to the disk and exit <code>fdisk</code>.</p>
+    <li><p><b>Delete all existing partitions.</b> My disk contains some partitions already, which I have to remove remove. I enter <kbd>d</kbd> and accept the default partition number repeatedly, until there are no partitions left to delete.</p>
+    <li><p><b>Create a boot partition.</b> The bootloader will live here. The associated device is <code>/dev/nvme0n1p1</code>, and I will later mount it to <code>/boot/efi</code>. I enter <kbd>n</kbd> to create a partition, accept the default partition number, accept the default starting sector, and enter <kbd>+100M</kbd> for the size. If asked about removing an existing signature, I enter <kbd>y</kbd>.</p>
+    <li><p><b>Create a root partition.</b> Binaries, global configuration, and logs will live here. The associated device is <code>/dev/nvme0n1p2</code>, and I will later mount it to <code>/</code>. I enter <kbd>n</kbd> to create a partition, accept the default partition number, accept the default starting sector, and enter <kbd>+50G</kbd> for the size. If asked about removing an existing signature, I enter <kbd>y</kbd>.</p>
+    <li><p><b>Create a home partition.</b> User files live here. This partition will occupy all the remaining space on the disk. The associated device is <code>/dev/nvme0n1p3</code>. I enter <kbd>n</kbd> to create a partition, accept the default partition number, accept the default starting cluster, and accept the default ending sector. If asked about removing an existing signature, I enter <kbd>y</kbd>.</p>
+    <li><p><b>Save changes.</b> I optionally enter <kbd>p</kbd> to view my proposed changes to the partition table. I enter <kbd>w</kbd> to write these changes to the disk and exit <code>fdisk</code>.</p>
     </ul>
-    <p>Next we set up encryption on <code>/dev/nvme0n1p3</code>, which will become our home partition. As a caveat, this only protects data within our home directories. Attackers with physical access to the computer can still access data on other parts of the file system. They can see what software is installed, for instance, and anything in the log files. The gist is that we will encrypt the partition with <code>cryptsetup luksFormat</code>, and then use <code>cryptsetup luksOpen</code> to create a new device called <code>/dev/mapper/luks_home</code> which we can use to interact with <code>/dev/nvme0n1p1</code> in its decrypted form. The <code>cryptsetup luksFormat</code> utility asks us to create a password when we format the partition, and we subsequently have to supply that password every time we run <code>cryptsetup luksOpen</code>.
+    <p>I next set up encryption on <code>/dev/nvme0n1p3</code>, which will become the home partition. I encrypt this partition with <code>cryptsetup luksFormat</code>, and then use <code>cryptsetup luksOpen</code> to create a new device called <code>/dev/mapper/luks_home</code> which I can then use to interact with <code>/dev/nvme0n1p1</code> in its decrypted form. The <code>cryptsetup luksFormat</code> utility asks me to create a password when I format the partition, and I subsequently have to supply that password every time I run <code>cryptsetup luksOpen</code>.
     <%bflib:codesnippet lang="bash">
 cryptsetup luksFormat /dev/nvme0n1p3
 cryptsetup luksOpen /dev/nvme0n1p3 luks_home
     </%bflib:codesnippet>
-    <p>Now we can format the partitions. We choose a <code>vfat</code> filesystem for the boot partition, to support the <code>grub</code> bootloader. We choose a <code>btrfs</code> filesystem for the root partition, to support system snapshots. We choose the standard <code>ext4</code> filesystem for the home partition, noting we use <code>/dev/mapper/luks_home</code> to access that partition now. Finally we mount all the partitions.</p>
+    <p>I continue on to format the partitions. I choose a <code>vfat</code> filesystem for the boot partition, to support the <code>grub</code> bootloader. I choose a <code>btrfs</code> filesystem for the root partition, to support system snapshots. I choose the standard <code>ext4</code> filesystem for the home partition, using <code>/dev/mapper/luks_home</code> to access that partition now. Finally, I mount all the partitions.</p>
     <%bflib:codesnippet lang="bash">
 mkfs.vfat -F32 /dev/nvme0n1p1
 mkfs.btrfs /dev/nvme0n1p2
@@ -49,72 +49,86 @@ mount --mkdir /dev/mapper/luks_home /mnt/home
     </%bflib:codesnippet>
 
     <h2>Installation</h2>
-    <p>We connect to the internet, assuming we have access to a wifi network called <code>MyNetwork</code> with a passphrase <code>MyPassphrase</code>.</p>
+    <p>I connect to the internet, assuming access to a wifi network called <code>MyNetwork</code> with a passphrase <code>MyPassphrase</code>.</p>
     <%bflib:codesnippet lang="bash">
 iwctl --passphrase MyPassphrase station wlan0 connect MyNetwork
     </%bflib:codesnippet>
-    <p>We now install Arch. The installation automatically runs <code>mkinitcpio</code> to build a ramdisk, but the ramdisk it builds is not sufficient, because of our encrypted home partition. Some warnings about <i>possibly missing firmware</i> also appear during the <code>mkinitcpio</code> run. We fill some of these gaps later.</p>
+    <p>I install Arch. The installation automatically runs <code>mkinitcpio</code> to build a ramdisk, but the ramdisk it builds is not sufficient because of our encrypted home partition. Some warnings about <i>possibly missing firmware</i> also appear during the <code>mkinitcpio</code> run. These warnings do not seem to matter (but I may research them later).</p>
     <%bflib:codesnippet lang="bash">
 pacstrap -K /mnt base linux linux-firmware
     </%bflib:codesnippet>
-    <p>Now we populate <code>fstab</code>, which describes how our partitions should be mounted. We can optionally view the <code>fstab</code> before and after we populate it.
+    <p>I now populate <code>fstab</code>, which describes how the partitions should be mounted. I optionally view the <code>fstab</code> before and after populating it, and then enter the installed system.</p>
     <%bflib:codesnippet lang="bash">
 cat /mnt/etc/fstab
 genfstab -Up /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
-    </%bflib:codesnippet>
-    <p>We enter the installed system with <code>arch-chroot</code>.
-    <%bflib:codesnippet lang="bash">
+
 arch-chroot /mnt
     </%bflib:codesnippet>
 
     <h2>Configuration</h2>
-    <p>Since editing configuration files will be among our first priorities, having a terminal-based text editor will be helpful. We install <code>vi</code> now (alternatively we could choose a different text editor like <code>nano</code> which has an easier learning curve).</p>
+    <p>With editing configuration files among my first priorities, having a terminal-based text editor will help. I install <code>vi</code>, but alternatively I could choose a different text editor like <code>nano</code> which has an easier learning curve.</p>
     <%bflib:codesnippet lang="bash">
 pacman -S vi
     </%bflib:codesnippet>
-    <p>We set a password for the root user.</p>
+    <p>I set a password for the root user.</p>
     <%bflib:codesnippet lang="bash">
 passwd
     </%bflib:codesnippet>
-    <p>We find the region and city that best fit our own by browsing the available regions and cities with <code>ls</code>. Assuming we live in region <code>MyRegion</code> and near city <code>MyCity</code>, we set our time zone.
+    <p>I find the region and city that best fit my own by browsing the available regions and cities with <code>ls</code>. Assuming I live in region <code>MyRegion</code> and near city <code>MyCity</code>, I set our time zone by creating a symbolic link from <code>/etc/localtime</code> to that city.</p>
     <%bflib:codesnippet lang="bash">
 ls /usr/share/zoneinfo
 ls /usr/share/zoneinfo/MyRegion
 
 ln -sf /usr/share/zoneinfo/MyRegion/MyCity /etc/localtime
     </%bflib:codesnippet>
-    <p>We generate the file <code>/etc/adjtime</code> per the installation guide.
+    <p>I generate the file <code>/etc/adjtime</code> per the installation guide.
     <%bflib:codesnippet lang="bash">
 hwclock --systohc
     </%bflib:codesnippet>
-We edit <code>/etc/locale.gen</code>, uncommenting (removing the <code>#</code> from the beginning of) the line <code>en_US.UTF-8 UTF-8</code>. Then we generate the locales.
+    <p>I edit <code>/etc/locale.gen</code>, removing the <code>#</code> from the beginning of the line <code>en_US.UTF-8 UTF-8</code>. Then I generate the locales.</p>
     <%bflib:codesnippet lang="bash">
 vi /etc/locale.gen
 locale-gen
     </%bflib:codesnippet>
 
-    <h2>Ramdisk &amp; Bootloader</h2>
-    <p>We might expect an operating system to simply load, but a more sophisticated setup using components called a bootloader and initial ramdisk is necessary. The details and choices are easy to get lost in, but <a href="https://forum.osdev.org/viewtopic.php?t=33029">Brendan</a> and others discuss the nuances and responsibilities of these components. We choose <code>grub</code> for our bootloader and again follow <a href="https://tforgione.fr/posts/arch-linux-encrypted/">Thomas Forgione</a> for help with our encrypted home directories.</p>
-    <p>Edit <code>/etc/mkinitcpio.conf</code>. On the line that starts with <code>HOOKS</code>, add <kbd>encrypt</kbd> between <code>block</code> and <code>filesystems</code>. Then rebuild the ramdisk. This change will prompt us for a password to decrypt the home partition on startup, but the warnings about unsupported hardware still appear.</p>
+    <h2>Ramdisk</h2>
+    <p>Flow of control apparently passes through two components before the operating system loads. It passes through a <em>bootloader</em> and an <em>initial ramdisk</em>. The details and choices are easy to get lost in, but <a href="https://forum.osdev.org/viewtopic.php?t=33029">Brendan</a> and others discuss the nuances and responsibilities of these components. I again follow <a href="https://tforgione.fr/posts/arch-linux-encrypted/">Thomas Forgione</a> here for help the encrypted home directories.</p>
+    <p>I edit <code>/etc/mkinitcpio.conf</code>. On the line that starts with <code>HOOKS</code>, I add <kbd>encrypt</kbd> between <code>block</code> and <code>filesystems</code>. I then rebuild the ramdisk. This change causes the ramdisk to prompt for a password to decrypt the home partition on startup. The warnings about unsupported hardware still appear.</p>
     <%bflib:codesnippet lang="bash">
 vi /etc/mkinitcpio.conf
 mkinitcpio -P
-
-pacman -S grub efibootmgr
     </%bflib:codesnippet>
-    Edit <code>/etc/default/grub</code> file. Uncomment the line <code>GRUB_ENABLE_CRYPTODISK=y</code>, and change the line starting with <code>GRUB_CMDLINE_LINUX</code> to read <code>GRUB_CMDLINE_LINUX="cryptdevice=/dev/nvme0n1p3:luks"</code>. Finally we install grub and create its configuration.</p>
+
+    <h2>Bootloader</h2>
+    I choose <code>grub</code> for my bootloader. I install its <code>pacmac</code> package and edit the <code>/etc/default/grub</code> file. I remove the <code>#</code> from the line <code>GRUB_ENABLE_CRYPTODISK=y</code> and set the value of <code>GRUB_CMDLINE_LINUX</code> to <code>"cryptdevice=/dev/nvme0n1p3:luks"</code>. Finally, I install grub and create its configuration.</p>
     <%bflib:codesnippet lang="bash">
+pacman -S grub efibootmgr
+vi /etc/default/grub
+
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub
 grub-mkconfig -o /boot/grub/grub.cfg
     </%bflib:codesnippet>
 
     <h2>Networking</h2>
-    <p>We have internet access now, but only because we booted from the installation media; because we have not yet installed the requisite packages for internet access, if we reboot without the installation media then we will be offline. Different guides suggest different package options here, but <code>iwd</code> is contemporary and sufficient. Install <code>iwd</code> and enable it, so it will start automatically on boot. Also choose a hostname, for example <code>MyHostname</code>.</p>
+    <p>I have internet access now, but only because I booted from the installation media. Because we have not yet installed the requisite packages for internet access, if I reboot without the installation media then I will be offline. Different guides suggest different package options here, but <code>iwd</code> is contemporary and sufficient. I install <code>iwd</code> and enable it, so it starts automatically on boot. I also enable the default name resolution service.</p>
     <%bflib:codesnippet lang="bash">
 pacman -S iwd
 systemctl enable iwd
+systemctl enable systemd-resolved.service
+    </%bflib:codesnippet>
+    <p>Even now <code>iwd</code> needs more configuration before I can talk to other servers. I create the file <code>/etc/iwd/main.conf</code> and add the following content.</p>
+    <%bflib:codesnippet lang="bash">
+[General]
+EnableNetworkConfiguration=true
 
+[Network]
+EnableIPv6=true
+NameResolvingService=systemd
+RoutePriorityOffset=300
+    </%bflib:codesnippet>
+    <p>I also choose a hostname, for example <code>MyHostname</code>.</p>
+    <%bflib:codesnippet lang="bash">
 echo MyHostname > /etc/hostname
     </%bflib:codesnippet>
 
