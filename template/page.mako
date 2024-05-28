@@ -2,6 +2,7 @@
     from bflib import HEADSHOT_WIDTH
 
     enable_article_ = False
+    enable_download_ = False
     enable_gallery_ = False
     enable_codesnippets_ = False
     enable_headline_ = False
@@ -18,6 +19,9 @@
 <link rel="stylesheet" href="/page.css">
 % if self.attr.enable_article_:
     <link rel="stylesheet" href="/article.css">
+% endif
+% if self.attr.enable_download_:
+    <link rel="stylesheet" href="/download.css">
 % endif
 % if self.attr.enable_gallery_:
     <link rel="stylesheet" href="/gallery.css">

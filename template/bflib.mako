@@ -9,6 +9,23 @@
     ${highlight(body.strip(), TextLexer(), HtmlFormatter())}
 </%def>
 
+<%def name="download(file)">
+    <%
+        from pathlib import Path
+
+        body = capture(caller.body)
+        path = Path()
+    %>
+    <a class="download" href="/download/${file}" download>
+    <div class="description">${body}</div>
+    <div class="file">
+    <div class="name">${file}</div>
+    <div class="size">asdf</div>
+    </div>
+    <div class="icon">[icon]</div>
+    </a>
+</%def>
+
 <%def name="gallery(fn, fid, x, y, width, angle)">
     <%
         from bflib import build_image, camera_resource

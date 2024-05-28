@@ -15,6 +15,9 @@ python logo.py
 python headshot.py
 python codesnippets.py
 
+# Copy file downloads
+python downloads.py
+
 # Build articles
 for f in article/*.mako; do
     bn=$(basename -- $f)
