@@ -1,34 +1,37 @@
-main a.download {
+main .download {
+    align-items: stretch;
     border: 2px solid blue;
-    color: blue;
-    display: flex;
-    text-decoration: none;
+    display: grid;
+    grid-template-columns: 1fr min-content min-content;
+    margin-left: 16px;
+    margin-right: 16px;
 }
 
-main a.download .description, a.download .file, a.download .icon {
-    flex-direction: row;
-    flex-wrap: wrap;
+main .download .description,
+main .download .file,
+main .download .icon {
+    border-bottom: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 8px;
 }
 
-main a.download .description {
-    flex: 1;
-}
-
-main a.download .file {
+main .download .file {
     border-left: 1px solid blue;
 }
 
-main a.download .file .name {
+main .download .file .name {
     color: black;
     font-family: monospace;
 }
 
-main a.download .file .size {
+main .download .file .size {
     color: #505050;
     font-size: small;
 }
 
-main a.download .file, a.download .icon {
+main .download .file,
+main .download .icon {
     background-color: #e8e8ff;
 }

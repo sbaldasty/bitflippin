@@ -9,6 +9,12 @@
     ${highlight(body.strip(), TextLexer(), HtmlFormatter())}
 </%def>
 
+<%def name="download_group()">
+    <div class="download">
+    ${capture(caller.body)}
+    </div>
+</%def>
+
 <%def name="download(file)">
     <%
         import humanize
@@ -19,16 +25,22 @@
         file_size = Path(f'download/{file}').stat().st_size
         human_readable_size = humanize.naturalsize(file_size, binary=True)
     %>
-    <a class="download" href="/download/${file}" download>
-    <div class="description">${body}</div>
+    <div class="description">
+        <div>${body}</div>
+    </div>
     <div class="file">
-    <div class="name">${file}</div>
-    <div class="size">${human_readable_size}</div>
+        <div>
+            <div class="name">${file}</div>
+            <div class="size">${human_readable_size}</div>
+        </div>
     </div>
     <div class="icon">
-    <img alt="Download" height="${ICON_SIZE}px" src="/download.png" title="Download" width="${ICON_SIZE}px">
+        <div>
+            <a href="/download/${file}" download>
+            <img alt="Download" height="${ICON_SIZE}px" src="/download.png" title="Download" width="${ICON_SIZE}px">
+            </a>
+        </div>
     </div>
-    </a>
 </%def>
 
 <%def name="gallery(fn, fid, x, y, width, angle)">
