@@ -1,6 +1,8 @@
 main .download {
     align-items: stretch;
-    border: 2px solid blue;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #808080;
+    border-top: 1px solid #808080;
     display: grid;
     grid-template-columns: 1fr min-content min-content;
     margin-left: 16px;
@@ -10,7 +12,7 @@ main .download {
 main .download .description,
 main .download .file,
 main .download .icon {
-    border-bottom: 1px solid blue;
+    border-bottom: 1px solid #808080;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,11 +20,10 @@ main .download .icon {
 }
 
 main .download .file {
-    border-left: 1px solid blue;
+    border-left: 1px solid #808080;
 }
 
 main .download .file .name {
-    color: black;
     font-family: monospace;
 }
 
