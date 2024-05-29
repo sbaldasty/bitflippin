@@ -1,16 +1,34 @@
 main a.download {
-    color: black;
+    border: 2px solid blue;
+    color: blue;
     display: flex;
     text-decoration: none;
 }
 
 main a.download .description, a.download .file, a.download .icon {
-    border: 1px solid blue;
     flex-direction: row;
     flex-wrap: wrap;
     padding: 8px;
 }
+
+main a.download .description {
+    flex: 1;
+}
+
+main a.download .file {
+    border-left: 1px solid blue;
+}
+
+main a.download .file .name {
+    color: black;
+    font-family: monospace;
+}
+
 main a.download .file .size {
     color: #505050;
     font-size: small;
+}
+
+main a.download .file, a.download .icon {
+    background-color: #e8e8ff;
 }

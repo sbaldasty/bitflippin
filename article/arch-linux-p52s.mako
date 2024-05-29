@@ -9,6 +9,7 @@
 <%block name="article">
     <p>Arch Linux offers the chance to build a system from the ground up, adding and configuring one component at a time, with the help of a well maintained wiki. Understanding the components and how they interact is a fun hobby, but also something of a time sink - especially considering the availability of other high quality Linux distributions out there, that come ready to use. I document here my process of setting up Arch. The device names are specific to my hardware. My process comes from the wiki and from various sources from around the internet. I include links along the way for attribution and further reading.</p>
 
+    <h2>Reference configuration files</h2>
     <%bflib:download file="sample.txt">
         Just testing the look and feel of this new little def block.
     </%bflib:download>

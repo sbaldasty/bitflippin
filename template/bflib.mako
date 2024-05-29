@@ -11,18 +11,23 @@
 
 <%def name="download(file)">
     <%
+        import humanize
+        from bflib import ICON_SIZE, OUTPUT_PATH
         from pathlib import Path
 
         body = capture(caller.body)
-        path = Path()
+        file_size = Path(f'download/{file}').stat().st_size
+        human_readable_size = humanize.naturalsize(file_size, binary=True)
     %>
     <a class="download" href="/download/${file}" download>
     <div class="description">${body}</div>
     <div class="file">
     <div class="name">${file}</div>
-    <div class="size">asdf</div>
+    <div class="size">${human_readable_size}</div>
     </div>
-    <div class="icon">[icon]</div>
+    <div class="icon">
+    <img alt="Download" height="${ICON_SIZE}px" src="/download.png" title="Download" width="${ICON_SIZE}px">
+    </div>
     </a>
 </%def>
 
