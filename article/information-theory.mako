@@ -7,7 +7,38 @@
 <%namespace name="bflib" file="bflib.mako" />
 <%block name="article">
 
+  <p>
+  So you have an artifact: perhaps text, audio, images, video, or other media.
+  You want your artifact sent to another place or future time.
+  We encode your artifact as a sequence of bits called a <i>message</i>.
+  We set aside any notion of meaning the message represents.
+  We send the message through a <i>channel</i> such as a telephone cable or hard drive.
+  We recover your artifact by decoding the message.
+  </p>
+
+  <h2>Considerations</h2>
+  <p>
+  How to measure the amount of information in a message?
+  </p>
+  <ul>
+  <li>
+    <p><b>Combinatorial.</b>
+    How many symbols does the sequence contain?
+    </p>
+  <li>
+    <p><b>Shannon Entropy.</b>
+    Also consider the predictability of the next symbol given those before.
+    </p>
+  <li>
+    <p><b>Kolmogorov Complexity.</b>
+    How long is the shortest computer program that generates the sequence?
+    </p>
+  </ul>
+
+
     <p>I took a class about Information Theory at the University of Vermont. It was a technical class: framing all information as bits absent any meaning, considering how to measure the quantity of the information, how to store or transmit it efficiently, and how to do so with redundancy in a way that protects it from corruption from noise.</p>
+
+  <h2>A history, a theory, a flood</h2>
 
     <p>In contrast, one of the supplementary resources for the class was a far less technical book called <a href="https://en.wikipedia.org/wiki/The_Information:_A_History,_a_Theory,_a_Flood"><i>The Information: A History, A Theory, A Flood</i></a> by James Gleik. The book tells the story of humanity's rapidly quickening dance with information, with countless anecdotes, from ancient history to the present day. Each step brought profound societal changes, and affected the thinking of everyday people in big ways. A few of my favorites were</p>
 

@@ -1,5 +1,5 @@
 <%!
-    title_ = 'Arch Linux on Lenovo Thinkpad P52s'
+    title_ = 'OLD Arch Linux on Lenovo Thinkpad P52s'
     date_ = '2024-04-22'
     enable_codesnippets_ = True
     enable_download_ = True

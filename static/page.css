@@ -36,8 +36,7 @@ header {
     gap: 16px;
     display: flex;
     flex-wrap: wrap;
-    margin: 8px;
-    padding-bottom: 8px;
+    margin: 16px;
 }
 
 header .expo {
