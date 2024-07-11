@@ -3,7 +3,7 @@
 %>
 <%inherit file="page.mako"/>
 <%block name="main">
-    <div class="article-date">${self.attr.date_}</div>
+    <p class="article-date">${self.attr.date_}</p>
     <h1>${self.attr.title_}</h1>
     <%block name="article"/>
 </%block>

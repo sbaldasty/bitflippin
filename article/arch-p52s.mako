@@ -7,10 +7,10 @@
 <%namespace name="bflib" file="bflib.mako" />
 <%block name="article">
 
-    <p>I installed Arch Linux on a Lenovo Thinkpad P52s making use of <code>grub</code> and a <code>btrfs</code> filesystem for easy snapshots. This document contains my notes and references from that project. It begins with the Arch installation image on a USB stick. It ends with the root user able to boot and connect to the internet.</p>
+    <p>I installed Arch Linux on a Lenovo Thinkpad P52s using <code>grub</code> for the bootloader and <code>btrfs</code> for the filesystem. This document contains my notes and references from that project. It begins in the installation image environment. It ends with the root user booting into the system. As always please exercise caution.</p>
 
-    <h2>References</h2>
-    <p>I draw from many sources. The sources all have slightly different goals and areas of focus. Many offer a useful generality this document may lack.</p>
+    <h2>Resources</h2>
+    <p>I drew from many sources. The sources all have slightly different goals and areas of focus. Many offer a useful generality this document may lack.</p>
     <ul>
     <li><p><b><a href="https://wiki.archlinux.org/title/Installation_guide">Official installation guide.</a></b> asdf</p>
     <li><p><b><a href="https://gist.github.com/mjkstra/96ce7a5689d753e7a6bdd92cdc169bae">Michele Gementi's installation guide.</a></b> asdf</p>
@@ -118,20 +118,10 @@ vim /etc/locale.gen
 locale-gen
     </%bflib:codesnippet>
 
-    <h2>Ramdisk</h2>
-    <p>Flow of control passes through a <i>bootloader</i> and a <i>ramdisk</i> before reaching the kernel. Build the ramdisk.</p>
-    <%bflib:codesnippet lang="bash">
-mkinitcpio -P
-    </%bflib:codesnippet>
-
     <h2>Bootloader</h2>
     <p>Install the necessary packages to make a <code>grub</code> bootloader.</p>
     <%bflib:codesnippet lang="bash">
 pacman -S grub efibootmgr
-    </%bflib:codesnippet>
-    <p>Edit the <code>grub</code> configuration file. Uncomment the line that starts with <code>GRUB_ENABLE_CRYPTODISK</code>. Set the value of <code>GRUB_CMDLINE_LINUX</code> to <code>&quot;cryptdevice=/dev/nvme0n1p2:luks&quot;</code>.
-    <%bflib:codesnippet lang="bash">
-vim /etc/default/grub
     </%bflib:codesnippet>
     <p>Install the bootloader and set up its configuration.</p>
     <%bflib:codesnippet lang="bash">
