@@ -1,4 +1,12 @@
 main .article-date {
-    text-align: right;
-    margin-right: 8px;
+    display: flex;
+    justify-content: right;
+}
+
+main .article-date div {
+    border: 1px solid purple;
+    color: purple;
+    font-family: monospace;
+    margin: 8px;
+    padding: 3px;
 }

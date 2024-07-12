@@ -59,10 +59,14 @@ footer .social-media {
     justify-content: center;
 }
 
-.highlight pre {
+.highlight {
     border: 1px solid #808080;
     border-radius: 2px;
-    padding: 5px;
+    padding: 8px;
+}
+
+.highlight pre {
+    margin: 0;
     white-space: pre-wrap;
 }
 

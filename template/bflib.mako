@@ -1,12 +1,14 @@
 <%def name="codesnippet(lang)">
     <%
         from pygments import highlight
-        from pygments.lexers.special import TextLexer
         from pygments.formatters import HtmlFormatter
+        from pygments.lexers import get_lexer_by_name
+        from pygments.lexers.special import TextLexer
 
         body = capture(caller.body)
+        lexer = get_lexer_by_name(lang)
     %>
-    ${highlight(body.strip(), TextLexer(), HtmlFormatter())}
+    ${highlight(body.strip(), lexer, HtmlFormatter())}
 </%def>
 
 <%def name="download_group()">

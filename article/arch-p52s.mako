@@ -7,10 +7,10 @@
 <%namespace name="bflib" file="bflib.mako" />
 <%block name="article">
 
-    <p>I installed Arch Linux on a Lenovo Thinkpad P52s using <code>grub</code> for the bootloader and <code>btrfs</code> for the filesystem. This document contains my notes and references from that project. It begins in the installation image environment. It ends with the root user booting into the system. As always please exercise caution.</p>
+    <p>I installed Arch Linux on a Lenovo Thinkpad P52s using <code>btrfs</code> for the filesystem and <code>grub</code> for the bootloader. This document contains my notes and references from that project. It begins in a fresh installation image environment. It ends with the root user booting into the system. As always please exercise caution.</p>
 
     <h2>Resources</h2>
-    <p>I drew from many sources. The sources all have slightly different goals and areas of focus. Many offer a useful generality this document may lack.</p>
+    <p>I drew from several sources. The resources all have slightly different goals and areas of focus. Most offer a useful generality this document may lack.</p>
     <ul>
     <li><p><b><a href="https://wiki.archlinux.org/title/Installation_guide">Official installation guide.</a></b> asdf</p>
     <li><p><b><a href="https://gist.github.com/mjkstra/96ce7a5689d753e7a6bdd92cdc169bae">Michele Gementi's installation guide.</a></b> asdf</p>
