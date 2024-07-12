@@ -32,7 +32,7 @@ header .title {
 footer {
     flex-direction: column;
     justify-content: center;
-    padding-top: 16px;
+    margin-top: 40px;
     row-gap: 16px;
     text-align: center;
 }
@@ -59,12 +59,14 @@ footer .social-media {
     justify-content: center;
 }
 
+/* TODO Remove to a code style sheet */
 .highlight {
     border: 1px solid #808080;
     border-radius: 2px;
     padding: 8px;
 }
 
+/* TODO Remove to a code style sheet */
 .highlight pre {
     margin: 0;
     white-space: pre-wrap;
@@ -80,4 +82,8 @@ blockquote {
 
 code, kbd {
     color: green;
+}
+
+li {
+    margin-bottom: 12px;
 }
