@@ -125,7 +125,7 @@ btrfs su snapshot / /root/snapshots/0001.configure
     <h2>Reboot</h2>
     <p>Exit out of the <code>chroot</code>, unmount all the filesystems, and restart the system.</p>
     <%bflib:codesnippet lang="bash">
-# Back in the installation media environment
+# Back in the installation image environment
 umount -R /mnt
 reboot
     </%bflib:codesnippet>
