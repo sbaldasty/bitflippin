@@ -1,12 +1,12 @@
 <%!
-    title_ = 'Information theory'
+    title_ = 'Museums about information theory'
     date_ = '2023-08-09'
     enable_gallery_ = True
 %>
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />
 <%block name="summary">
-    <p>asdf summary</p>
+    I took an information theory class at UVM, and later visited two information theory related museums: the Museum of Printing and the New Hampshire Telephone Museum.
 </%block>
 <%block name="article">
 

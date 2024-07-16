@@ -7,6 +7,8 @@
     <div>${self.attr.date_}</div>
     </div>
     <h1>${self.attr.title_}</h1>
-    <%block name="summary"/>
+    <p>
+        <%block name="summary"/>
+    </p>
     <%block name="article"/>
 </%block>

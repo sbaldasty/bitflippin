@@ -6,7 +6,7 @@
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />
 <%block name="summary">
-    <p>I installed Arch Linux on a Lenovo Thinkpad P52s using <code>btrfs</code> for the filesystem and <code>grub</code> for the bootloader. This document contains my notes and references. It begins in a fresh installation image environment. It ends with the root user booting into the system.</p>
+    I installed Arch Linux on a Lenovo Thinkpad P52s using <code>btrfs</code> for the filesystem and <code>grub</code> for the bootloader. I recorded my process and references, beginning in a fresh installation image environment and ending with the root user booting into the new system.
 </%block>
 <%block name="article">
     <h2>Resources</h2>

@@ -6,7 +6,7 @@
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />
 <%block name="summary">
-    <p>The VACC is the University of Vermont's in-house supercomputing cluster. I wrote a script called <code>vaccjob</code> to automate the transfer, submission, monitoring, and output retrieval of jobs.</p>
+    I wrote a script called <code>vaccjob</code> to automate the transfer, submission, monitoring, and output retrieval of jobs on UVM's in-house supercomputing cluster.
 </%block>
 <%block name="article">
     <h2>References</h2>
