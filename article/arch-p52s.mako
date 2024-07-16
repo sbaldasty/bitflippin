@@ -5,10 +5,10 @@
 %>
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />
-<%block name="article">
-
+<%block name="summary">
     <p>I installed Arch Linux on a Lenovo Thinkpad P52s using <code>btrfs</code> for the filesystem and <code>grub</code> for the bootloader. This document contains my notes and references. It begins in a fresh installation image environment. It ends with the root user booting into the system.</p>
-
+</%block>
+<%block name="article">
     <h2>Resources</h2>
     <p>I drew from several sources. The sources all have slightly different goals and focus areas. Most offer a useful generality this document may lack.</p>
     <ul>

@@ -5,6 +5,9 @@
 %>
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />
+<%block name="summary">
+    <p>asdf summary</p>
+</%block>
 <%block name="article">
 
   <p>

@@ -5,10 +5,10 @@
 %>
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />
-<%block name="article">
-
+<%block name="summary">
     <p>The VACC is the University of Vermont's in-house supercomputing cluster. I wrote a script called <code>vaccjob</code> to automate the transfer, submission, monitoring, and output retrieval of jobs.</p>
-
+</%block>
+<%block name="article">
     <h2>References</h2>
     <ul>
     <li><div><b><a href="https://www.uvm.edu/vacc/kb/knowledge-base/understand-batch-system/">Understanding the batch job system</a></b></div><div>How to connect to the VACC, write job scripts, install software dependencies, submit jobs, monitor jobs, and retrieve output. Contains links to pages that detail each step.</div>

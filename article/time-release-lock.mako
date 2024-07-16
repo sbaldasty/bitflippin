@@ -5,6 +5,9 @@
 %>
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />
+<%block name="summary">
+    <p>asdf summary</p>
+</%block>
 <%block name="article">
 
     <p>I feel grateful to live in a time and place where food is abundant. In theory, I could enjoy eating just enough food. I could enjoy sharing meals with family and friends. I could enjoy the health benefits good nutrition brings. In practice, the draw toward delicious tastes is powerful. Sugar especially offers a strange temporarily escape from stress and sadness. In my younger years I ate chocolate by the bar. I ate ice cream by the carton. I ate it in the morning. I ate it alone at night. Together with aging and a more sedentary lifestyle, my choices began to affect energy level and mood. Eventually they even began to affect my weight.</p>

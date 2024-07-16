@@ -88,6 +88,6 @@
     <div class="title">
     <a href="${aid}">${template.module.title_}</a>
     </div>
-    <div>${capture(caller.body)}</div>
+    <div>${template.module.render_summary(context)}</div>
     </div>
 </%def>
