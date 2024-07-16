@@ -1,0 +1,42 @@
+#!/bin/bash
+set -e
+
+HOST=vacc-user1.uvm.edu
+JIDF=~/.vaccjobid
+DELAY=600
+
+if ! [ $# -eq 6 ]; then
+   echo "Requires 6 parameters."
+   exit 1
+fi
+
+if [ -f $JIDF ]; then
+   jid=$(cat "$JIDF")
+   echo "Resuming job id $jid"
+else
+   echo "Copying payload $3"
+   sshpass -f "$2" scp -rC "$3" "$1"@"$HOST":
+   echo "Submitting job $4"
+   jobcmd="sbatch $4"
+   resp=$(sshpass -f "$2" ssh "$1"@"$HOST" "$jobcmd")
+   jid="${resp##* }"
+   echo "Job id is $jid"
+   echo "$jid" > "$JIDF"
+   sleep "$DELAY"
+fi
+
+while true; do
+   pollcmd="squeue -h -j $jid -o %T"
+   set +e
+   resp=$(sshpass -f "$2" ssh "$1"@"$HOST" "$pollcmd")
+   set -e
+   if [ -z "$resp" ]; then
+      break
+   fi
+   echo "$resp"
+   sleep "$DELAY"
+done
+
+rm $JIDF
+echo "Copying output to $6"
+sshpass -f "$2" scp -rC "$1"@"$HOST":"$5" "$6"

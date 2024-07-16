@@ -129,5 +129,5 @@ btrfs su snapshot / /root/snapshots/0001.configure
 umount -R /mnt
 reboot
     </%bflib:codesnippet>
-    <p>Remove the installation media and restart the laptop. If all goes well log in again as <kbd>root</kbd>.</p>
+    <p>Remove the installation media and restart the laptop. If all goes well log in as <kbd>root</kbd>.</p>
 </%block>
