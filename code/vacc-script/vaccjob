@@ -14,8 +14,14 @@ if [ -f $JIDF ]; then
    jid=$(cat "$JIDF")
    echo "Resuming job id $jid"
 else
+   echo "Clearing payload directory on $HOST"
+   payloaddir=$(basename "$3")
+   sshpass -f "$2" ssh "$1"@"$HOST" "rm -rf $payloaddir"
    echo "Copying payload $3"
    sshpass -f "$2" scp -rC "$3" "$1"@"$HOST":
+   echo "Clearing output directory on $HOST"
+   clrcmd="mkdir -p $5; rm -rf $5/*"
+   sshpass -f "$2" ssh "$1"@"$HOST" "$clrcmd"
    echo "Submitting job $4"
    jobcmd="sbatch $4"
    resp=$(sshpass -f "$2" ssh "$1"@"$HOST" "$jobcmd")
@@ -38,5 +44,7 @@ while true; do
 done
 
 rm $JIDF
+echo "Clearing local output directory $6"
+rm -rf "$6/*"
 echo "Copying output to $6"
 sshpass -f "$2" scp -rC "$1"@"$HOST":"$5" "$6"
