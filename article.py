@@ -5,7 +5,7 @@ from mako.lookup import TemplateLookup
 import sys
 
 def build_article(lookup: TemplateLookup, name: str):
-    build_page(lookup, name, Path(name))
+    build_page(lookup, name, Path(f'article/{name}'))
 
 if __name__ == '__main__':
     name = sys.argv[1]

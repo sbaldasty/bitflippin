@@ -86,7 +86,7 @@
     %>
     <div class="headline">
     <div class="title">
-    <a href="${aid}">${template.module.title_}</a>
+    <a href="article/${aid}">${template.module.title_}</a>
     </div>
     <div>${template.module.render_summary(context)}</div>
     </div>
