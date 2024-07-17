@@ -10,50 +10,22 @@
 </%block>
 <%block name="article">
 
-    <p style="color: red; font-weight: bold">This is still a draft in progress! I still need to add a paper reference and clean up the writing a lot.</p>
-
     <h2>References</h2>
     <ul>
     <li><div><b><a href="https://www.amazon.com/Information-History-Theory-Flood/dp/1400096235">The Information: A History, A Theory, A Flood</a></b></div><div>Amazon page for a good book about the humanity's history with information.</div>
     <li><div><b><a href="https://www.museumofprinting.org/">Museum of Printing homepage</a></b></div><div>Includes location, hours of operation, events calendar, membership information, volunteer opportunities, and exhibit pictures.</div>
     <li><div><b><a href="https://www.nhtelephonemuseum.org/">New Hampshire Telephone Museum homepage</a></b></div><div>Includes location, hours of operation, membership information, and online store.</div>
+    <li><div><b><a href="https://www.tandfonline.com/doi/abs/10.1080/00207166808803030">Three Approaches to the Quantitative Definition of Information</a></b></div><div>Andrei Kolmogorov's paper about different perspectives on how to measure an <i>amount</i> of information.</div>
     </ul>
 
     <h2>Information theory</h2>
-  <p>
-  So you have an artifact: perhaps text, audio, images, video, or other media.
-  You want your artifact sent to another place or future time.
-  We encode your artifact as a sequence of bits called a <i>message</i>.
-  We set aside any notion of meaning the message represents.
-  We send the message through a <i>channel</i> such as a telephone cable or hard drive.
-  We recover your artifact by decoding the message.
-  </p>
+    <p>Imagine having a piece of text, audio, images, video, or other media. Now imagine a scenario where that media gets sent to another place or to a future time. We encode the media as a sequence of bits called a <i>message</i>. We set aside any notion of meaning the message represents. We send the message through a <i>channel</i> such as a telephone cable or hard drive. We recover the media by decoding the message. Important considerations arise. How for efficiency can we send the message with the fewest number of bits? Conversely how can we add redundancy to protect the message from corruption due to noise in the channel?</p>
 
-  <h2>Considerations</h2>
-  <p>
-  How to measure the amount of information in a message?
-  </p>
-  <ul>
-  <li>
-    <p><b>Combinatorial.</b>
-    How many symbols does the sequence contain?
-    </p>
-  <li>
-    <p><b>Shannon Entropy.</b>
-    Also consider the predictability of the next symbol given those before.
-    </p>
-  <li>
-    <p><b>Kolmogorov Complexity.</b>
-    How long is the shortest computer program that generates the sequence?
-    </p>
-  </ul>
+    <p>A related question is how to measure the amount of information in a message. A <i>combinatorial</i> approach counts how many symbols the message contains. The symbols are usually bits. <i>Shannon Entropy</i> also consider the predictability of the next symbol given the symbols that have appeared before. <i>Kolmogorov Complexity</i> asks instead, how long is the shortest computer program that generates the sequence? Information theory as we studied it mostly considered Shannon Entropy.</p>
 
+    <h2>A history, a theory, a flood</h2>
 
-    <p>I took a class about Information Theory at the University of Vermont. It was a technical class: framing all information as bits absent any meaning, considering how to measure the quantity of the information, how to store or transmit it efficiently, and how to do so with redundancy in a way that protects it from corruption from noise.</p>
-
-  <h2>A history, a theory, a flood</h2>
-
-    <p>In contrast, one of the supplementary resources for the class was a far less technical book called <a href="https://en.wikipedia.org/wiki/The_Information:_A_History,_a_Theory,_a_Flood"><i>The Information: A History, A Theory, A Flood</i></a> by James Gleik. The book tells the story of humanity's rapidly quickening dance with information, with countless anecdotes, from ancient history to the present day. Each step brought profound societal changes, and affected the thinking of everyday people in big ways. A few of my favorites were</p>
+    <p>One of the supplementary resources for the class was a less technical book called <i>The Information: A History, A Theory, A Flood</i> by James Gleik. The book tells the story of humanity's rapidly accelerating dance with information with countless anecdotes from ancient history to the present day. It tells how each advance brought profound societal changes and affected the thinking of everyday people in big ways. A few of my favorites were</p>
 
     <ul>
     <li><p>How in Africa, drums using two pitches could spread news between villages. African drumming was for centuries a long-unparalleled means of communication over enormous distances.</p>
@@ -64,7 +36,7 @@
     <li><p>How Claude Shannon and other brilliant thinkers like Andrei Kolmogorov formalized information theory, and laid the foundations for modern electronic communication.</p>
     </ul>
 
-    <p>I visited two museums with my parents that brought to life for me many of these stories: one about the history of printing, and the other about the history of telephones.</p>
+    <p>Spending time with historical artifacts from the worlds of printing and telephony naturally brought to life for me a large important swath of that history.</p>
 
     <%bflib:gap/>
     <%bflib:gallery fn="campus-at-dusk" fid="00000001" x="200" y="0" width="2900" angle="0">
@@ -75,7 +47,7 @@
 
     <h2>The Museum of Printing</h2>
 
-    <p>The <a href="https://museumofprinting.org/">Museum of Printing</a> is in Haverhill, Massachusetts. It has fascinating hands-on exhibits, and knowledgeable staff who are happy to answer questions and offer guided tours. From its About Page,</p>
+    <p>The Museum of Printing is in Haverhill, MA. It has fascinating hands-on exhibits and knowledgeable staff who are happy to answer questions and offer guided tours. From its About Page,</p>
 
     <blockquote>The Museum of Printing is dedicated to preserving the rich history of the graphic arts, printing and typesetting technology, and printing craftsmanship. In addition to many special collections and small exhibits, the Museum contains hundreds of antique printing, typesetting, and bindery machines, as well as a library of books and printing-related documents.</blockquote>
 
@@ -118,7 +90,7 @@
 
     <h2>The New Hampshire Telephone Museum</h2>
 
-    <p>The <a href="https://www.nhtelephonemuseum.org/">New Hampshire Telephone Museum</a> is in Warner, New Hampshire. I recommend visiting the museum to anyone interested learning about the history of telegraphs and telephones; or seeing firsthand some of the fascinating artifacts on which our communications infrastructure is built, past and present. They also have several hands-on demos: telegraphs, manual switchboards, automated switchboards, and early coin operated telephones. There is even a whole room dedicated to the life of Alexander Bell.</p>
+    <p>The New Hampshire Telephone Museum is in Warner, NH. I recommend visiting the museum to anyone interested learning about the history of telegraphs and telephones or seeing firsthand some of the fascinating artifacts on which our communications infrastructure is built, past and present. It also have several hands-on demos: telegraphs, manual switchboards, automated switchboards, and early coin operated telephones. There is a whole room dedicated to the life of Alexander Bell.</p>
 
     <%bflib:gap/>
     <%bflib:gallery fn="telegraph-demo" fid="00000015" x="300" y="300" width="3400" angle="0">
@@ -151,8 +123,8 @@
     </%bflib:gallery>
     <%bflib:gap/>
 
-    <h2>The unknowable future</h2>
+    <h2>Reflections</h2>
 
-    <p><i>The Information: A History, A Theory, A Flood</i> and the two museums tell a story of the past; but they also raise important questions about the future. Technological innovation happens quickly now, so where will it go next? Among the final ideas presented in the book is that when information is scarce and difficult to access it is expensive; but when information is plentiful and easy to access then attention is expensive. I wonder here at the cusp of what seems to be real artificial intelligence in what novel ways generations after us will relate to information.</p>
+    <p>Among the final ideas presented in <i>The Information: A History, A Theory, A Flood</i> is that when information is scarce and difficult to access, then it is expensive; but when information is plentiful and easy to access then attention is expensive. In the same way that most people in the past were unable to understand the ways in which new information technologies would affect their lives and minds, I too am unlikely to understand the ways in which new information technologies will affect my life and mind, and those of the generations that follow.</p>
 
 </%block>
