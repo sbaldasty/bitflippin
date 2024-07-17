@@ -10,6 +10,16 @@
 </%block>
 <%block name="article">
 
+    <p style="color: red; font-weight: bold">This is still a draft in progress! I still need to add a paper reference and clean up the writing a lot.</p>
+
+    <h2>References</h2>
+    <ul>
+    <li><div><b><a href="https://www.amazon.com/Information-History-Theory-Flood/dp/1400096235">The Information: A History, A Theory, A Flood</a></b></div><div>Amazon page for a good book about the humanity's history with information.</div>
+    <li><div><b><a href="https://www.museumofprinting.org/">Museum of Printing homepage</a></b></div><div>Includes location, hours of operation, events calendar, membership information, volunteer opportunities, and exhibit pictures.</div>
+    <li><div><b><a href="https://www.nhtelephonemuseum.org/">New Hampshire Telephone Museum homepage</a></b></div><div>Includes location, hours of operation, membership information, and online store.</div>
+    </ul>
+
+    <h2>Information theory</h2>
   <p>
   So you have an artifact: perhaps text, audio, images, video, or other media.
   You want your artifact sent to another place or future time.
