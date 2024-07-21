@@ -7,6 +7,7 @@
 <%block name="main">
     <h2>Articles</h2>
     <%bflib:headline aid="vacc-script"/>
+    <%bflib:headline aid="arch-wifi"/>
     <%bflib:headline aid="arch-p52s"/>
     <%bflib:headline aid="information-theory"/>
     <%bflib:headline aid="time-release-lock"/>

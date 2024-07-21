@@ -87,3 +87,8 @@ code, kbd {
 li {
     margin-bottom: 12px;
 }
+
+.advisory {
+    color: red;
+    font-weight: bold;
+}
