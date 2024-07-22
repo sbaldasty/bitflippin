@@ -9,8 +9,9 @@
     I installed Arch Linux on a Lenovo Thinkpad P52s using <code>btrfs</code> for the filesystem and <code>grub</code> for the bootloader. I recorded my process, beginning in a fresh installation image environment and ending with the root user booting into the new system.
 </%block>
 <%block name="article">
-    <h2>References</h2>
     <p>I drew from several sources. The sources all have slightly different goals and focus areas. Most offer a useful generality this document may lack.</p>
+
+    <h2>References</h2>
     <ul>
     <li>
     <div><b><a href="https://wiki.archlinux.org/title/Installation_guide">Official installation guide</a></b></div>
