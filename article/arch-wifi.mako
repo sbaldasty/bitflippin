@@ -6,7 +6,7 @@
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />
 <%block name="summary">
-    I set up wireless internet access on a Lenovo Thinkpad P52s after installing Arch Linux and the <code>iwd</code> package.
+    After installing Arch Linux and the <code>iwd</code> package, I set up wireless internet access on a Lenovo Thinkpad P52s.
 </%block>
 <%block name="article">
     <p>These instructions configure and enable two services. The <code>iwd</code> service provides wireless internet access. The <code>systemd-resolved</code> service provides domain name resolution. These instructions also cover network configuration steps leftover from the minimal Arch installation.</p>
