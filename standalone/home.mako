@@ -6,6 +6,8 @@
 <%inherit file="page.mako" />
 <%block name="main">
     <h2>Articles</h2>
+    <!-- <%bflib:headline aid="cvc5-maven-project"/> -->
+    <%bflib:headline aid="arch-google-chrome"/>
     <%bflib:headline aid="arch-non-root-user"/>
     <%bflib:headline aid="vacc-script"/>
     <%bflib:headline aid="arch-wifi"/>
