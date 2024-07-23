@@ -1,0 +1,7 @@
+<repositories>
+    <repository>
+        <id>ProjectRepo</id>
+        <name>ProjectRepo</name>
+        <url>file://${project.basedir}/libs</url>
+    </repository>
+</repositories>
