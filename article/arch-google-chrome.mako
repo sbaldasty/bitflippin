@@ -30,7 +30,7 @@
     </ul>
 
     <h2>Installing sway</h2>
-    <p>Chrome needs a graphical environment to run in, such as a wayland compositor like <code>sway</code>. Install <code>sway</code> and choose <code>gnu-free-fonts</code> when the installation process asks about a font - but other choices probably work fine. Also install <code>alacritty</code> which is a terminal for <code>sway</code>. Copy the default <code>sway</code> configuration file to the user home directory. Edit the configuration file to set <code>alacritty</code> as the default terminal. Launch sway. Open a terminal by pressing the <i>Win+Enter</i> keys together. Continue to the remaining steps in the <code>alacritty</code> terminal.</p>
+    <p>Chrome needs a graphical environment to run in, such as a wayland compositor like <code>sway</code>. Install <code>sway</code> and choose <code>gnu-free-fonts</code> when the installation process asks about a font. Other choices probably work fine. Also install <code>alacritty</code> which is a terminal for <code>sway</code>. Copy the default <code>sway</code> configuration file to the user home directory. Edit the configuration file to set <code>alacritty</code> as the default terminal. Launch sway. Open a terminal by pressing the <i>Win+Enter</i> keys together. Continue to the remaining steps in the <code>alacritty</code> terminal.</p>
     <%bflib:codesnippet lang="bash">
 # Install sway and alacritty
 sudo pacman -S sway alacritty
