@@ -6,7 +6,7 @@
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />
 <%block name="summary">
-    After installing Arch Linux, I got <code>google-chrome</code> from the AUR running by way of installing <code>sway</code>, <code>git</code>, and <code>yay</code>. I configure the packages only minimally for now.
+    After installing Arch Linux, I got <code>google-chrome</code> from the AUR running by way of installing <code>sway</code>, <code>git</code>, and <code>yay</code>. I configured these packages only minimally for getting started purposes.
 </%block>
 <%block name="article">
 
