@@ -57,7 +57,7 @@ make install
 
     <h2>Including the Java API in a maven project</h2>
     <p>Assuming the existence of a maven project where the <code>package</code> goal is working, the next step is to create a local maven repository inside the project. If the project is a git repository, the local maven repository and the <code>cvc5</code> Java API jar it will contain will live alongside the project's source code in the git repository.</p>
-    <p>Create the the very precise directory structure the local maven repository requires to house the jar. Adjust the version number of the directory if necessary to match that of the jar. Copy the Java API deep inside the local repository. Add a <code>pom.xml</code> file alongside it. Paste into the <code>pom.xml</code> file the contents of the <b>Maven POM File</b> for <code>cvc5</code> from <a href="https://central.sonatype.com/artifact/io.github.p-org.solvers/cvc5">Maven Central</a>.</p>
+    <p>Create the very precise directory structure the local maven repository requires to house the jar. Adjust the version number of the directory if necessary to match that of the jar. Copy the Java API deep inside the local repository. Add a <code>pom.xml</code> file alongside it. Paste into the <code>pom.xml</code> file the contents of the <b>Maven POM File</b> for <code>cvc5</code> from <a href="https://central.sonatype.com/artifact/io.github.p-org.solvers/cvc5">Maven Central</a>.</p>
     <%bflib:codesnippet lang="bash">
 # Note the version number of the cvc5 artifact
 ls ~/src/cvc5/build/install/share/java/cvc5
@@ -93,5 +93,5 @@ java -jar target/MyProject-1.0-SNAPSHOT-jar-with-dependencies.jar
 # If the libraries have not been moved
 java -Djava.library.path="/[Placeholder]/src/cvc5/build/install/lib" -jar target/MyProject-1.0-SNAPSHOT-jar-with-dependencies.jar
     </%bflib:codesnippet>
-    <p>Of course replace the path to the project jar and the placeholder in the new library path appropriately. The library path must be an <b>absolute</b> path.</p>
+    <p>Be sure to replace the path to the project jar and the placeholder in the new library path appropriately. The library path must be an absolute path.</p>
 </%block>
