@@ -14,7 +14,7 @@
     <h2>References</h2>
     <ul>
     <li>
-    <div><b><a href="https://github.com/AdaCore/cvc5">Github repository for cvc5</a></b></div>
+    <div><b><a href="https://github.com/cvc5/cvc5">Github repository for cvc5</a></b></div>
     <div>High level overview of what <code>cvc5</code> is and does. Includes links to documentation, installation instructions, and the official website.</div>
     <li>
     <div><b><a href="https://cvc5.github.io/docs/cvc5-1.1.2/api/java/java.html">Building the Java API</a></b></div>
@@ -44,7 +44,7 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 
 # Navigate to a parent directory into which to clone the repo
 # Mostly doing this for clarity later on
-cd ~/src
+cd /home/bob
 
 # Clone the cvc5 repo from github and build
 git clone https://github.com/cvc5/cvc5
@@ -60,19 +60,21 @@ make install
     <p>Create the very precise directory structure the local maven repository requires to house the jar. Adjust the version number of the directory if necessary to match that of the jar. Copy the Java API deep inside the local repository. Add a <code>pom.xml</code> file alongside it. Paste into the <code>pom.xml</code> file the contents of the <b>Maven POM File</b> for <code>cvc5</code> from <a href="https://central.sonatype.com/artifact/io.github.p-org.solvers/cvc5">Maven Central</a>.</p>
     <%bflib:codesnippet lang="bash">
 # Note the version number of the cvc5 artifact
-ls ~/src/cvc5/build/install/share/java/cvc5
+ls install/share/java/cvc5
 
 # Navigate to the maven project's directory
-cd ~/mvnprj
+cd /home/bob/mvnprj
 
 # Create directory structure to house jar in local repo
-mkdir -p libs/io/github/p-org/solvers/cvc5/1.1.0
+# Replace the version number appropriately
+mkdir -p libs/io/github/p-org/solvers/cvc5/1.1.2
 
 # Copy the jar to the local repo
-cp ~/src/cvc5/build/install/share/java/cvc5/cvc5-1.1.0.jar ~/mvnprj/libs/io/github/p-org/solvers/cvc5/1.1.0
+# Replace the version number appropriately
+cp /home/bob/cvc5/build/install/share/java/cvc5/cvc5-1.1.2.jar /home/bob/mvnprj/libs/io/github/p-org/solvers/cvc5/1.1.2
 
 # Paste content from Maven Central into this file
-vim ~/mvnprj/libs/io/github/p-org/solvers/cvc5/1.1.0/pom.xml
+vim ~/mvnprj/libs/io/github/p-org/solvers/cvc5/1.1.2/pom.xml
     </%bflib:codesnippet>
     <p>The remaining work happens in the <code>pom.xml</code> file of the <i>project</i>. Tell maven about the new local repository by adding a <code>repository</code> block. Only include the enclosing <code>repositories</code> block if the project does not already contain one.</p>
     <%bflib:codesnippet lang="xml" file="code/cvc5-mvn-project/repository"/>
@@ -81,7 +83,7 @@ vim ~/mvnprj/libs/io/github/p-org/solvers/cvc5/1.1.0/pom.xml
     <p>At this point, the project should build. If it does, try pasting one of the <code>cvc5</code> examples into the main program and building again.</p>
 
     <h2>Running the project</h2>
-    <p>The challenge around running the project is that the <code>cvc5</code> build process leaves the libraries that the Java API needs to link to in a place where Java can't see them. Find those libraries by navigating to <code>~/src/cvc5/build/install/lib</code>. Two options here:</p>
+    <p>The challenge around running the project is that the <code>cvc5</code> build process leaves the libraries that the Java API needs to link to in a place where Java can't see them. Those libraries currently live in <code>/home/bob/cvc5/build/install/lib</code>. Two options here:</p>
     <ol>
     <li>Copy the libraries to a standard location such as <code>/usr/lib</code> and run the project as usual. I have not tried this approach.
     <li>Leave the libraries alone but tell Java where they are.
@@ -91,7 +93,9 @@ vim ~/mvnprj/libs/io/github/p-org/solvers/cvc5/1.1.0/pom.xml
 java -jar target/MyProject-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 # If the libraries have not been moved
-java -Djava.library.path="/[Placeholder]/src/cvc5/build/install/lib" -jar target/MyProject-1.0-SNAPSHOT-jar-with-dependencies.jar
+java -Djava.library.path="/home/bob/src/cvc5/build/install/lib" -jar target/MyProject-1.0-SNAPSHOT-jar-with-dependencies.jar
     </%bflib:codesnippet>
-    <p>Be sure to replace the path to the project jar and the placeholder in the new library path appropriately. The library path must be an absolute path.</p>
+    <p>Be sure to replace the path to the project jar appropriately. The <code>java.library.path</code> must be an absolute path.</p>
+    <h2>Onboarding other developers</h2>
+    <p>The process is much simpler for other developers who want to work on the project. They only need the <code>cvc5</code> library files. They can build <code>cvc5</code> without the <code>--java-bindings</code> switch, without installing an older version of Java for compatibility. It might be possible to copy the compiled libraries to other machines and bypass building <code>cvc5</code> altogether, but I have not tried.</p>
 </%block>
