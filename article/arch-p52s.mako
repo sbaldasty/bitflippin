@@ -93,10 +93,10 @@ btrfs su snapshot /mnt /mnt/root/btrsnap/0000.base
 
 
     <h2>Configuration</h2>
-    <p>Enter into the new installation. Install <code>iwd</code> for internet access without help from the installation image, the text editor <code>vim</code> for editing configuration files, and <code>btrfs-progs</code> for taking system snapshots. Go through a number of mundane steps per the installation guide.</p>
+    <p>Enter into the new installation. Install <code>iwd</code> and <code>openresolv</code> for internet access without help from the installation image, the text editor <code>vim</code> for editing configuration files, and <code>btrfs-progs</code> for taking system snapshots. Go through a number of mundane steps per the installation guide.</p>
     <%bflib:codesnippet lang="bash">
 arch-chroot /mnt
-pacman -S iwd vim btrfs-progs
+pacman -S iwd openresolv vim btrfs-progs
 
 # Set root password
 passwd

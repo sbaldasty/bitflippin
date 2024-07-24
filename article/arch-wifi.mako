@@ -6,7 +6,7 @@
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />
 <%block name="summary">
-    After installing Arch Linux and the <code>iwd</code> package, I set up wireless internet access on a Lenovo Thinkpad P52s.
+    After installing Arch Linux and the <code>iwd</code> and <code>openresolv</code> packages, I set up wireless internet access on a Lenovo Thinkpad P52s.
 </%block>
 <%block name="article">
     <p>These instructions configure and enable two services. The <code>iwd</code> service provides wireless internet access. The <code>systemd-resolved</code> service provides domain name resolution. These instructions also cover network configuration steps leftover from the minimal Arch installation.</p>
@@ -31,24 +31,20 @@ vim /etc/hostname
     </%bflib:codesnippet>
 
     <h2>Name resolution service</h2>
-    <p>Per the Arch wiki point the actual name resolution service configuration to the default service configuration. Start and enable the <code>systemd-resolved</code> service. Starting the service launches it immediately. Enabling the servicec causes it to start automatically on boot.</p>
+    <p>I tried extensively to get <code>systemd-resolved</code> working but could not get past an issue where many names resolved but some did not, including the name of this site for instance. I switched to <code>resolvconf</code>.</p>
+    <p>Per the Arch wiki, create the <code>resolv.conf</code> configuration file.</p>
     <%bflib:codesnippet lang="bash">
-# Symlink to the default configuration
-ln -sf ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
-
-# Start and enable systemd-resolved
-systemctl enable systemd-resolved.service
-systemctl start systemd-resolved.service
+resolvconf -u
     </%bflib:codesnippet>
 
     <h2>Wireless service</h2>
-    <p>There is no <code>iwd</code> configuration file by default. Paste in this minimal configuration file when the time comes. The default name resolving service should already be <code>systemd</code> so strictly no need to specify it.</p>
+    <p>There is no <code>iwd</code> configuration file by default. Paste in this minimal configuration file when the time comes.</p>
     <%bflib:codesnippet lang="linuxconfig">
 [General]
 EnableNetworkConfiguration=true
 
 [Network]
-NameResolvingService=systemd
+NameResolvingService=resolvconf
     </%bflib:codesnippet>
     <p>Start and enable the <code>iwd</code> service. Starting the service launches it immediately. Enabling the servicec causes it to start automatically on boot. Connect to the internet wirelessly, replacing <kbd>MyNetwork</kbd> and <kbd>MyPassphrase</kbd> appropriately.</p>
     <%bflib:codesnippet lang="bash">
