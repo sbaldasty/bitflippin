@@ -12,7 +12,7 @@
 
     <h2>References</h2>
     <ul>
-    <li><div><b><a href="https://medium.com/behavior-design-hub/your-commitment-devices-database-35a54df3a64f">Commitment devicecs</a></b></div><div>Brief introduction to what commitment devices are and are not. Examples of commitment devices.</div>
+    <li><div><b><a href="https://medium.com/behavior-design-hub/your-commitment-devices-database-35a54df3a64f">Commitment devices</a></b></div><div>Brief introduction to what commitment devices are and are not. Examples of commitment devices.</div>
     <li><div><b><a href="https://www.amazon.com/Display-Multi-Function-Electronic-Rechargeable-Padlock/dp/B08TV495HL">Time release lock purchase page</a></b></div><div>Product similar to the time release lock I bought.</div>
     <li><div><b><a href="https://www.ferrerorocher.com/">Ferrero Rocher</a></b></div><div>Hazelnut surrounded by nutella in a crunchy chocolatey shell with nuts on its surface. Not the most environmentally friendly packaging.</div>
     <li><div><b><a href="https://www.ghirardelli.com/60-cacao-bittersweet-chocolate-premium-baking-chips-12-bags-61274cs">Extra dark chocolate baking chips</a></b></div><div>Normally used in cooking, but a good standalone snack as well. They blend nicely with nutella.</div>
