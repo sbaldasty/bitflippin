@@ -4,7 +4,6 @@ main .article-date {
 }
 
 main .article-date div {
-    border: 1px solid purple;
     color: purple;
     font-family: monospace;
     margin: 8px;
