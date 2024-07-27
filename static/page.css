@@ -1,4 +1,6 @@
 body {
+    background-color: #e0e0e0;
+    margin: 0;
     overflow-y: scroll;
 }
 
@@ -8,9 +10,7 @@ a:visited {
 
 header, footer {
     align-items: center;
-    background-color: #e0e0e0;
     display: flex;
-    margin: -8px;
     padding: 16px;
 }
 
@@ -19,7 +19,6 @@ header {
     color: #505050;
     gap: 16px;
     flex-wrap: wrap;
-    margin-bottom: 8px;
 }
 
 header .expo {
@@ -31,11 +30,15 @@ header .title {
     font: bold 20px monospace;
 }
 
+main {
+    background-color: white;
+    padding: 8px 8px 32px 8px;
+}
+
 footer {
     border-top: 1px solid #808080;
     flex-direction: column;
     justify-content: center;
-    margin-top: 40px;
     row-gap: 16px;
     text-align: center;
 }
