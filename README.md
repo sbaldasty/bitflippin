@@ -9,7 +9,7 @@ This repository contains everything to build the website from scratch, except ex
 These are the pip-installable packages used to build the website.
 
 - **Mako**: HTML templating engine.
-- **PIL**: Image manipulation.
+- **pillow**: Image manipulation.
 - **Pygments**: Syntax highlighting for HTML-embedded code.
 - **htmlmin**: Minify HTML output.
 - **humanize**: Download sizes.
