@@ -21,7 +21,7 @@
     </ul>
 
     <h2>Workflow</h2>
-    <p>Bob the developer has already installed and configured <code>git</code>. He has already added a <code>ssh</code> key to his github account. Bob needs to download source code from multiple online services. He wants to organize the source code by service, and whatever directory structure makes sense under that depending on the service. For instance github repositories should live in this directory structure: <code>~/Code/github/<i>user</i>/<i>repo</i></code>. To clone my Hunt the Wumpus java applet Bob runs</p>
+    <p>Bob the developer has already installed and configured <code>git</code>. He has already added a <code>ssh</code> key to his github account. Bob needs to download source code from multiple online services. He wants to organize the source code by service, and whatever directory structure makes sense under that depending on the service. For instance github repositories should live in this directory structure: <code>~/Code/github/<i>user</i>/<i>repo</i></code>. To clone my <i>Hunt the Wumpus</i> java applet Bob runs</p>
     <%bflib:codesnippet lang="bash">
 ghclone sbaldasty wumpus-applet
     </%bflib:codesnippet>
