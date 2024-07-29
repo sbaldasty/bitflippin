@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Remove the output directory
 rm -rf out

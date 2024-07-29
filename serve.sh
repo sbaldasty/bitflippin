@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Open URL with default browser
 open http://localhost:8000/
