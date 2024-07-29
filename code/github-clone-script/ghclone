@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+if ! [ $# -eq 2 ]; then
+   echo "Requires 2 parameters."
+   exit 1
+fi
+
+d=$HOME/Code/github/$1
+mkdir -p $d
+git clone git@github.com:$1/$2.git $d/$2

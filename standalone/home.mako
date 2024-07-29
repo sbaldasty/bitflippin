@@ -6,7 +6,7 @@
 <%inherit file="page.mako" />
 <%block name="main">
     <h2>Articles</h2>
-    <%bflib:headline aid="sway-customizations"/>
+    <%bflib:headline aid="github-clone-script"/>
     <%bflib:headline aid="cvc5-mvn-project"/>
     <%bflib:headline aid="arch-google-chrome"/>
     <%bflib:headline aid="arch-non-root-user"/>
