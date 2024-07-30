@@ -54,6 +54,7 @@ git clone https://github.com/cvc5/cvc5
 cd cvc5
 
 # Switch to latest stable branch
+# Replace the version number if needed
 git checkout cvc5-1.1.2
 
 # Build the project and java bindings
