@@ -36,6 +36,9 @@
     <h2>Building the cvc5 libraries and Java API</h2>
     <p>I get errors when I try to build <code>cvc5</code> with the latest version of Java. Probably worth trying again after time has passed, but meanwhile install an older version of Java and temporarily point <code>$JAVA_HOME</code> at it. Then follow the official build instructions.</p>
     <%bflib:codesnippet lang="bash">
+# Install some build tools
+sudo apt install cmake m4
+
 # Install an old JDK compatible with cmake or cvc5 or whatever
 sudo apt install openjdk-8-jdk
 
@@ -46,9 +49,14 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 # Mostly doing this for clarity later on
 cd /home/bob
 
-# Clone the cvc5 repo from github and build
+# Clone the cvc5 repo from github
 git clone https://github.com/cvc5/cvc5
 cd cvc5
+
+# Switch to latest stable branch
+git checkout cvc5-1.1.2
+
+# Build the project and java bindings
 ./configure.sh production --java-bindings --auto-download --prefix=build/install
 cd build
 make
@@ -59,18 +67,15 @@ make install
     <p>Assuming the existence of a maven project where the <code>package</code> goal is working, the next step is to create a local maven repository inside the project. If the project is a git repository, the local maven repository and the <code>cvc5</code> Java API jar it will contain will live alongside the project's source code in the git repository.</p>
     <p>Create the very precise directory structure the local maven repository requires to house the jar. Adjust the version number of the directory if necessary to match that of the jar. Copy the Java API deep inside the local repository. Add a <code>pom.xml</code> file alongside it. Paste into the <code>pom.xml</code> file the contents of the <b>Maven POM File</b> for <code>cvc5</code> from <a href="https://central.sonatype.com/artifact/io.github.p-org.solvers/cvc5">Maven Central</a>.</p>
     <%bflib:codesnippet lang="bash">
-# Note the version number of the cvc5 artifact
-ls install/share/java/cvc5
-
 # Navigate to the maven project's directory
 cd /home/bob/mvnprj
 
 # Create directory structure to house jar in local repo
-# Replace the version number appropriately
+# Replace the version number if needed
 mkdir -p libs/io/github/p-org/solvers/cvc5/1.1.2
 
 # Copy the jar to the local repo
-# Replace the version number appropriately
+# Replace the version number if needed
 cp /home/bob/cvc5/build/install/share/java/cvc5/cvc5-1.1.2.jar /home/bob/mvnprj/libs/io/github/p-org/solvers/cvc5/1.1.2
 
 # Paste content from Maven Central into this file
