@@ -1,6 +1,7 @@
 body {
     background-color: #e0e0e0;
     margin: 0;
+    overflow-wrap: break-word;
     overflow-y: scroll;
 }
 
@@ -89,6 +90,7 @@ blockquote {
 pre {
     line-height: 125%;
     margin: 8px;
+    white-space: pre-wrap;
 }
 
 code, kbd {
