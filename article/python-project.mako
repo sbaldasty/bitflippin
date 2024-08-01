@@ -76,7 +76,7 @@ python -m pip install -r requirements.txt
 
     <h2>Directory structure</h2>
     <p>Create a directory called <code>myproject</code> to house the project's source code - even if the project directory is already called <code>myproject</code> create another <code>myproject</code> directory inside it. Naming this new directory <code>myproject</code> will cause the <code>pip</code> package to be named after the project too. Thus the imports will be more intuitive, especially in the unit tests which live externally to the package. Add <code>demo.py</code> to the new <code>myproject</code> directory.</p>
-    <%bflib:codesnippet lang="python">
+    <%bflib:codesnippet title="myproject/myproject/demo.py" lang="python">
 def return_true():
     return True
 
@@ -84,14 +84,14 @@ if __name__ == '__main__':
     print('You ran the demo')
     </%bflib:codesnippet>
     <p>Back in the top level directory create a directory called <code>tests</code>. Inside the new directory create a file called <code>test_demo.py</code>. Note at this stage the import is broken because <code>tests</code> can only see subpackages.</p>
-    <%bflib:codesnippet lang="python">
+    <%bflib:codesnippet title="myproject/tests/test_demo.py" lang="python">
 import myproject.demo
 
 def test_return_true():
     assert myproject.demo.return_true() == True
     </%bflib:codesnippet>
     <p>Back in the top level directory create a file called <code>setup.py</code>. This file helps <code>pip</code> make <code>myproject</code> into a package.</p>
-    <%bflib:codesnippet lang="python">
+    <%bflib:codesnippet title="myproject/setup.py" lang="python">
 from setuptools import setup
 from setuptools import find_namespace_packages
 

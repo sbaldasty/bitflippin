@@ -1,4 +1,4 @@
-<%def name="codesnippet(lang, file=None)">
+<%def name="codesnippet(lang, title=None, file=None)">
     <%
         from pygments import highlight
         from pygments.formatters import HtmlFormatter
@@ -18,6 +18,11 @@
         output = output.removesuffix('</pre></div>')
     %>
     <div class="codesnippet">
+        % if title is not None:
+            <div class="header">
+                ${title}
+            </div>
+        % endif
         <pre class="lang-${lang}">${output}</pre>
     </div>
 </%def>
