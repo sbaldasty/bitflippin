@@ -40,7 +40,7 @@
 </a>
 <div class="expo">
 <div class="title">bitflippin.com</div>
-<div>Welcome to Steven Baldasty's personal website and bit flipping laboratory</div>
+<div>Steven's personal website and bit flipping laboratory</div>
 </div>
 </header>
 <main>
