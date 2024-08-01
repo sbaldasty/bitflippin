@@ -86,6 +86,11 @@ blockquote {
     padding: 8px;
 }
 
+pre {
+    line-height: 125%;
+    margin: 8px;
+}
+
 code, kbd {
     color: green;
 }

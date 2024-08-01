@@ -12,8 +12,14 @@
                 body = f.read()
 
         lexer = get_lexer_by_name(lang)
+        output = highlight(body, lexer, HtmlFormatter())
+        # Remove outer blocks
+        output = output.removeprefix('<div class="highlight"><pre><span></span>')
+        output = output.removesuffix('</pre></div>')
     %>
-    ${highlight(body, lexer, HtmlFormatter())}
+    <div class="codesnippet">
+        <pre class="lang-${lang}">${output}</pre>
+    </div>
 </%def>
 
 <%def name="download_group()">

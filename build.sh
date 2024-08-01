@@ -14,7 +14,6 @@ python home.py
 python assets.py
 python logo.py
 python headshot.py
-python codesnippets.py
 python icons.py
 
 # Copy file downloads

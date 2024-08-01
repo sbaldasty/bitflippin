@@ -6,6 +6,7 @@
     enable_gallery_ = False
     enable_codesnippets_ = False
     enable_headline_ = False
+    enable_lang_bash_ = False
 %>
 <!DOCTYPE html>
 <html>
@@ -27,10 +28,13 @@
     <link rel="stylesheet" href="/gallery.css">
 % endif
 % if self.attr.enable_codesnippets_:
-    <link rel="stylesheet" href="/codesnippets.css">
+    <link rel="stylesheet" href="/codesnippet.css">
 % endif
 % if self.attr.enable_headline_:
     <link rel="stylesheet" href="/headline.css">
+% endif
+% if self.attr.enable_lang_bash_:
+    <link rel="stylesheet" href="/lang-bash.css">
 % endif
 </head>
 <body>
