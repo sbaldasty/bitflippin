@@ -26,24 +26,24 @@
     <h2>Procedure</h2>
     <p>I buy any junk food I like and can find at an acceptable price. I keep it all in one container. Any container with a hole for the shackle of the lock to slip through would do, but I use a large repurposed toolbox. I had it on-hand, and it allows me lots of space. In the morning, I enjoy choosing a reasonable amount of junk food from the container to last me the day. I give myself plenty of leeway about what <em>reasonable</em> means. After all, I only want to avoid overindulgence, not to punish myself. After that I make my commitment by locking the container. I allow myself to eat my chosen junk food any time I want, but I usually eat some after breakfast and the rest after lunch.</p>
 
-    <%bflib:gap/>
-    <%bflib:gallery fn="open-time-release-lock" fid="00000006" x="1000", y="1020", width="2900", angle="75">
+    <%bflib:gallery>
+    <%bflib:photo fn="open-time-release-lock" fid="00000006" x="1000", y="1020", width="2900", angle="75">
         <%def name="title()">Basic features</%def>
         <%def name="caption()">I bought this time release lock on Amazon. It is sturdy and has worked reliably for several years. It has a simple digital display, and buttons for setting and starting the timer. It beeps, but the beeping can be silenced.</%def>
-    </%bflib:gallery>
-    <%bflib:gallery fn="toolbox-of-chocolate" fid="00000005" x="0", y="1150", width="2980", angle="0">
+    </%bflib:photo>
+    <%bflib:photo fn="toolbox-of-chocolate" fid="00000005" x="0", y="1150", width="2980", angle="0">
         <%def name="title()">Stocking the container</%def>
         <%def name="caption()">I restock infrequently to minimize my free access to junk food; but when I do, I fill the container completely. This way I can also take advantage of good sales and bulk deals.</%def>
-    </%bflib:gallery>
-    <%bflib:gallery fn="time-release-lock-timer" fid="00000004" x="0", y="200", width="3000", angle="0">
+    </%bflib:photo>
+    <%bflib:photo fn="time-release-lock-timer" fid="00000004" x="0", y="200", width="3000", angle="0">
         <%def name="title()">Setting the timer</%def>
         <%def name="caption()">I set the timer for about 20 hours. The lock releases overnight, giving me flexibility around when to collect junk food in the morning.</%def>
-    </%bflib:gallery>
-    <%bflib:gallery fn="time-release-lock-charging-port" fid="00000003" x="1650", y="2150", width="1500", angle="150">
+    </%bflib:photo>
+    <%bflib:photo fn="time-release-lock-charging-port" fid="00000003" x="1650", y="2150", width="1500", angle="150">
         <%def name="title()">Charging port</%def>
         <%def name="caption()">I charge through a USB cable every couple months. If the battery runs out of charge, the lock cannot open again until it is at least partially recharged.</%def>
+    </%bflib:photo>
     </%bflib:gallery>
-    <%bflib:gap/>
 
     <h2>Reflection</h2>
     <p>My future self sometimes experiences cravings. He sometimes feels upset that the rest the junk food is locked up. When that happens I take a little time to remember how my past self limited the choices I have now because he cared about me, and how in the morning I will get to choose more junk food and then make the same commitment all over again, limiting the choices my next future self will have because I care about him.</p>
