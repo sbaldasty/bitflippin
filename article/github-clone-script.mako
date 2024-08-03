@@ -2,6 +2,7 @@
     title_ = 'Github clone script'
     date_ = '2024-07-24'
     enable_codesnippets_ = True
+    enable_lang_bash_ = True
 %>
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />
@@ -27,7 +28,7 @@ ghclone sbaldasty wumpus-applet
     </%bflib:codesnippet>
     <h2>Script</h2>
     <p>Here is the full <code>ghclone</code> script in its current form. As always please exercise caution with code that interacts with third party systems, and with code that can potentially modify or delete data.</p>
-    <%bflib:codesnippet lang="bash" file="code/github-clone-script/ghclone"/>
+    <%bflib:codesnippet title="ghclone" lang="bash" file="code/github-clone-script/ghclone"/>
 
     <h2>Shortcomings</h2>
     <p>The script does not clean up any files or directories it created if cloning the repository fails.</p>

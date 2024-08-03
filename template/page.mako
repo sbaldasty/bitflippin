@@ -8,6 +8,7 @@
     enable_headline_ = False
     enable_lang_bash_ = False
     enable_lang_python_ = False
+    enable_lang_xml_ = False
 %>
 <!DOCTYPE html>
 <html>
@@ -39,6 +40,9 @@
 % endif
 % if self.attr.enable_lang_python_:
     <link rel="stylesheet" href="/lang-python.css">
+% endif
+% if self.attr.enable_lang_xml_:
+    <link rel="stylesheet" href="/lang-xml.css">
 % endif
 </head>
 <body>

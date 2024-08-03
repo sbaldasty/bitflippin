@@ -2,6 +2,7 @@
     title_ = 'Automation script for VACC jobs'
     date_ = '2024-07-12'
     enable_codesnippets_ = True
+    enable_lang_bash_ = True
 %>
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />
@@ -51,7 +52,7 @@ vaccjob bobsnetid ~/.sshpasswds/uvm ~/src/vj vj/job.sh remoteout ~/localout
 
     <h2>Script</h2>
     <p>Here is the full <code>vaccjob</code> script in its current form. As always please exercise caution with code that interacts with third party systems, and with code that can potentially modify or delete data.</p>
-    <%bflib:codesnippet lang="bash" file="code/vacc-script/vaccjob"/>
+    <%bflib:codesnippet title="vaccjob" lang="bash" file="code/vacc-script/vaccjob"/>
 
     <h2>Shortcomings</h2>
     <p>Sometimes a harmless error message about an undefined job id appears at the end. I think this happens when the job has been terminated long enough for the SLURM to forget what its id was. Also <code>vaccjob</code> is unaware of whether the job finished successfully or not. It tries to retrieve the output either way.</p>

@@ -2,6 +2,8 @@
     title_ = 'Maven project with cvc5 dependency'
     date_ = '2024-07-22'
     enable_codesnippets_ = True
+    enable_lang_bash_ = True
+    enable_lang_xml_ = True
 %>
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />

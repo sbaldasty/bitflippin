@@ -2,6 +2,7 @@
     title_ = 'Wifi on Arch Linux'
     date_ = '2024-07-11'
     enable_codesnippets_ = True
+    enable_lang_bash_ = True
 %>
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />
@@ -39,7 +40,7 @@ resolvconf -u
 
     <h2>Wireless service</h2>
     <p>There is no <code>iwd</code> configuration file by default. Paste in this minimal configuration file when the time comes.</p>
-    <%bflib:codesnippet lang="linuxconfig">
+    <%bflib:codesnippet title="/etc/iwd/main.conf" lang="linuxconfig">
 [General]
 EnableNetworkConfiguration=true
 

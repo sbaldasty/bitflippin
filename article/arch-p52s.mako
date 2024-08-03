@@ -2,6 +2,7 @@
     title_ = 'Arch Linux on a Lenovo Thinkpad P52s'
     date_ = '2024-07-10'
     enable_codesnippets_ = True
+    enable_lang_bash_ = True
 %>
 <%inherit file="article.mako" />
 <%namespace name="bflib" file="bflib.mako" />

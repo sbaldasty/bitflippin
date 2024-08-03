@@ -62,7 +62,7 @@ deactivate
 
     <h2>PyPI dependencies</h2>
     <p>Create a directory to house <code>myproject</code> and navigate there. Optionally make the directory a <code>git</code> repository. List all the <code>myproject</code> dependencies and their versions in a file called <code>requirements.txt</code> in the top level of the repository.</p>
-    <%bflib:codesnippet lang="text">
+    <%bflib:codesnippet title="myproject/requirements.txt" lang="text">
 mpyc==0.10
 numpy==2.0.1
 scikit-learn==1.5.1
