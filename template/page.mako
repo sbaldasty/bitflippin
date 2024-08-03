@@ -7,6 +7,7 @@
     enable_codesnippets_ = False
     enable_headline_ = False
     enable_lang_bash_ = False
+    enable_lang_python_ = False
 %>
 <!DOCTYPE html>
 <html>
@@ -21,20 +22,23 @@
 % if self.attr.enable_article_:
     <link rel="stylesheet" href="/article.css">
 % endif
+% if self.attr.enable_codesnippets_:
+    <link rel="stylesheet" href="/codesnippet.css">
+% endif
 % if self.attr.enable_download_:
     <link rel="stylesheet" href="/download.css">
 % endif
 % if self.attr.enable_gallery_:
     <link rel="stylesheet" href="/gallery.css">
 % endif
-% if self.attr.enable_codesnippets_:
-    <link rel="stylesheet" href="/codesnippet.css">
-% endif
 % if self.attr.enable_headline_:
     <link rel="stylesheet" href="/headline.css">
 % endif
 % if self.attr.enable_lang_bash_:
     <link rel="stylesheet" href="/lang-bash.css">
+% endif
+% if self.attr.enable_lang_python_:
+    <link rel="stylesheet" href="/lang-python.css">
 % endif
 </head>
 <body>
