@@ -19,18 +19,14 @@
     %>
     <div class="codesnippet">
         % if title is not None:
-            <div class="header">
-                ${title}
-            </div>
+            <div class="header">${title}</div>
         % endif
         <pre class="lang-${lang}">${output}</pre>
     </div>
 </%def>
 
 <%def name="download_group()">
-    <div class="download">
-    ${capture(caller.body)}
-    </div>
+    <div class="download">${capture(caller.body)}</div>
 </%def>
 
 <%def name="download(file)">
@@ -76,11 +72,11 @@
         build_image(dest, src, int(x), int(y), int(width), int(angle), PHOTO_WIDTH, PHOTO_HEIGHT)
     %>
     <div class="photo">
-    <img alt="${caller.title()}" height="${PHOTO_HEIGHT}px" src="/photo/${fn}.jpg" title="${caller.title()}" width="${PHOTO_WIDTH}px">
-    <div class="expo">
-    <div class="title">${caller.title()}</div>
-    <div>${caller.caption()}</div>
-    </div>
+        <img alt="${caller.title()}" height="${PHOTO_HEIGHT}px" src="/photo/${fn}.jpg" title="${caller.title()}" width="${PHOTO_WIDTH}px">
+        <div class="expo">
+            <div class="title">${caller.title()}</div>
+            <div>${caller.caption()}</div>
+        </div>
     </div>
 </%def>
 
@@ -96,10 +92,10 @@
         template = lookup.get_template(f'{aid}.mako')
     %>
     <div class="headline">
-    <div class="title">
-    <a href="article/${aid}">${template.module.title_}</a>
-    </div>
-    <div>${template.module.render_summary(context)}</div>
+        <div class="title">
+            <a href="article/${aid}">${template.module.title_}</a>
+        </div>
+        <div>${template.module.render_summary(context)}</div>
     </div>
 </%def>
 
