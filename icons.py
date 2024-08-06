@@ -3,27 +3,30 @@ from bflib import *
 from PIL import Image
 from PIL import ImageDraw
 
+MULTIPLIER = 3
+DIM = ICON_SIZE * MULTIPLIER
+DIMS = (DIM, DIM)
 TRANSPARENT = (255, 255, 255, 0)
 LINK_FG = (0, 0, 255, 255)
 LINK_BG = (255, 255, 255, 255)
 
 def build_download_icon():
-    image = Image.new('RGBA', (ICON_SIZE, ICON_SIZE), color=TRANSPARENT)
+    image = Image.new('RGBA', DIMS, color=TRANSPARENT)
     draw = ImageDraw.Draw(image)
 
-    draw.rounded_rectangle((0, 0, ICON_SIZE - 1, ICON_SIZE - 1),
-        fill=LINK_BG, outline=LINK_FG, radius=ICON_SIZE, width = 2)
+    draw.rounded_rectangle((0, 0, DIM - 1, DIM - 1),
+        fill=LINK_BG, outline=LINK_FG, radius=DIM, width = 3)
 
     # Define the arrow parameters
-    arrow_width = 3
-    arrow_length = 12
-    arrow_head_length = 9
+    arrow_width = 9
+    arrow_length = 36
+    arrow_head_length = 27
     arrow_color = LINK_FG
 
     # Coordinates for the arrow shaft
-    shaft_x1 = ICON_SIZE // 2
-    shaft_y1 = 6
-    shaft_x2 = ICON_SIZE // 2
+    shaft_x1 = DIM // 2
+    shaft_y1 = 16
+    shaft_x2 = DIM // 2
     shaft_y2 = shaft_y1 + arrow_length
 
     # Draw the arrow shaft (a thick line)
@@ -38,8 +41,9 @@ def build_download_icon():
     head_bottom_y = shaft_y2 + arrow_head_length
 
     # Draw the arrow head (a filled triangle)
-    draw.polygon([(head_left_x, head_left_y), (head_right_x, head_right_y), (head_bottom_x, head_bottom_y)], fill=arrow_color)
+    draw.polygon([(head_left_x - 4, head_left_y), (head_right_x + 4, head_right_y), (head_bottom_x, head_bottom_y)], fill=arrow_color)
     path = f'{OUTPUT_PATH}/download.png'
+    image = image.resize((ICON_SIZE, ICON_SIZE), resample=Image.Resampling.BICUBIC)
     image.save(path, 'PNG')
     print(f'Added {path}')
 
