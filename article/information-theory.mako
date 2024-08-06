@@ -9,15 +9,6 @@
     I took an information theory class at UVM, and later visited two information theory related museums: the Museum of Printing and the New Hampshire Telephone Museum.
 </%block>
 <%block name="article">
-
-    <h2>References</h2>
-    <ul>
-    <li><div><b><a href="https://www.amazon.com/Information-History-Theory-Flood/dp/1400096235">The Information: A History, A Theory, A Flood</a></b></div><div>Amazon page for a good book about the humanity's history with information.</div>
-    <li><div><b><a href="https://www.museumofprinting.org/">Museum of Printing homepage</a></b></div><div>Includes location, hours of operation, events calendar, membership information, volunteer opportunities, and exhibit pictures.</div>
-    <li><div><b><a href="https://www.nhtelephonemuseum.org/">New Hampshire Telephone Museum homepage</a></b></div><div>Includes location, hours of operation, membership information, and online store.</div>
-    <li><div><b><a href="https://www.tandfonline.com/doi/abs/10.1080/00207166808803030">Three Approaches to the Quantitative Definition of Information</a></b></div><div>Andrei Kolmogorov's paper about different perspectives on how to measure an <i>amount</i> of information.</div>
-    </ul>
-
     <h2>Information theory</h2>
     <p>Imagine having a piece of text, audio, images, video, or other media. Now imagine a scenario where that media gets sent to another place or to a future time. We encode the media as a sequence of bits called a <i>message</i>. We set aside any notion of meaning the message represents. We send the message through a <i>channel</i> such as a telephone cable or hard drive. We recover the media by decoding the message. Important considerations arise. How for efficiency can we send the message with the fewest number of bits? Conversely how can we add redundancy to protect the message from corruption due to noise in the channel?</p>
 
@@ -127,4 +118,10 @@
 
     <p>Among the final ideas presented in <i>The Information: A History, A Theory, A Flood</i> is that when information is scarce and difficult to access, then it is expensive; but when information is plentiful and easy to access then attention is expensive. In the same way that most people in the past were unable to understand the ways in which new information technologies would affect their lives and minds, I too am unlikely to understand the ways in which new information technologies will affect my life and mind, and those of the generations that follow.</p>
 
+</%block>
+<%block name="references">
+    <%bflib:reference title="The Information: A History, A Theory, A Flood" url="https://www.amazon.com/Information-History-Theory-Flood/dp/1400096235">Amazon page for a good book about the humanity's history with information.</%bflib:reference>
+    <%bflib:reference title="Museum of Printing homepage" url="https://www.museumofprinting.org/">Includes location, hours of operation, events calendar, membership information, volunteer opportunities, and exhibit pictures.</%bflib:reference>
+    <%bflib:reference title="New Hampshire Telephone Museum homepage" url="https://www.nhtelephonemuseum.org/">Includes location, hours of operation, membership information, and online store.</%bflib:reference>
+    <%bflib:reference title="Three Approaches to the Quantitative Definition of Information" url="https://www.tandfonline.com/doi/abs/10.1080/00207166808803030">Andrei Kolmogorov's paper about different perspectives on how to measure an <i>amount</i> of information.</%bflib:reference>
 </%block>

@@ -10,14 +10,6 @@
     I wrote a script called <code>vaccjob</code> to automate the transfer, submission, monitoring, and output retrieval of jobs on UVM's in-house supercomputing cluster.
 </%block>
 <%block name="article">
-    <h2>References</h2>
-    <ul>
-    <li><div><b><a href="https://www.uvm.edu/vacc/kb/knowledge-base/understand-batch-system/">Understanding the batch job system</a></b></div><div>How to connect to the VACC, write job scripts, install software dependencies, submit jobs, monitor jobs, and retrieve output. Contains links to pages that detail each step.</div>
-    <li><div><b><a href="https://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/">Non-interactive password authentication</a></b></div><div>Detailed instructions on how to use <code>sshpass</code>, including examples. How to install <code>sshpass</code> on many operating systems.</div>
-    <li><div><b><a href="https://snapshooter.com/learn/linux/copy-files-scp">SCP tutorial</a></b></div><div>At a high level, how to use <code>scp</code> and some of its switches.</div>
-    <li><div><b><a href="https://www.redhat.com/sysadmin/arguments-options-bash-scripts">Arguments in bash scripts</a></b></div><div>Good practices for writing and structuring <code>bash</code> scripts. How to support command line switches and argments in <code>bash</code> scripts, including examples.</div>
-    </ul>
-
     <h2>Password authentication</h2>
     <p>The VACC does not support public key authentication, only password authentication. One workaround to prompting for the UVM NetID password mid-script is to put the password in a local file and use the <code>sshpass</code> utility to feed the password to <code>ssh</code> or <code>scp</code>. Install <code>ssh</code> and <code>sshpass</code> if not installed already using the appropriate operating system specific process.</p>
     <%bflib:codesnippet lang="bash">
@@ -57,4 +49,10 @@ vaccjob bobsnetid ~/.sshpasswds/uvm ~/src/vj vj/job.sh remoteout ~/localout
     <h2>Shortcomings</h2>
     <p>Sometimes a harmless error message about an undefined job id appears at the end. I think this happens when the job has been terminated long enough for the SLURM to forget what its id was. Also <code>vaccjob</code> is unaware of whether the job finished successfully or not. It tries to retrieve the output either way.</p>
 
+</%block>
+<%block name="references">
+    <%bflib:reference title="Understanding the batch job system" url="https://www.uvm.edu/vacc/kb/knowledge-base/understand-batch-system/">How to connect to the VACC, write job scripts, install software dependencies, submit jobs, monitor jobs, and retrieve output. Contains links to pages that detail each step.</%bflib:reference>
+    <%bflib:reference title="Non-interactive password authentication" url="https://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/">Detailed instructions on how to use <code>sshpass</code>, including examples. How to install <code>sshpass</code> on many operating systems.</%bflib:reference>
+    <%bflib:reference title="SCP tutorial" url="https://snapshooter.com/learn/linux/copy-files-scp">At a high level, how to use <code>scp</code> and some of its switches.</%bflib:reference>
+    <%bflib:reference title="Arguments in bash scripts" url="https://www.redhat.com/sysadmin/arguments-options-bash-scripts">Good practices for writing and structuring <code>bash</code> scripts. How to support command line switches and argments in <code>bash</code> scripts, including examples.</%bflib:reference>
 </%block>

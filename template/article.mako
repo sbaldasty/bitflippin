@@ -11,4 +11,8 @@
         <%block name="summary"/>
     </p>
     <%block name="article"/>
+    <h2>References</h2>
+    <ul>
+    <%block name="references"/>
+    </ul>
 </%block>

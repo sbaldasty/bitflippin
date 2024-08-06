@@ -13,22 +13,6 @@
 <%block name="article">
     <p>I documented my process setting up the project <code>myproject</code> as a sequence of instructions. Note though that many different or better choices may exist at each step.</p>
 
-    <h2>References</h2>
-    <ul>
-    <li>
-    <div><b><a href="https://python.plainenglish.io/a-practical-guide-to-python-project-structure-and-packaging-90c7f7a04f95">Joshua Phuong Le's guide to python project structure</a></b></div>
-    <div>Recommendations about directory structure, packaging the project, and installing it as a package. Explains some available options at each step.</div>
-    <li>
-    <div><b><a href="https://www.reddit.com/r/pop_os/comments/1aj8uk0/installing_virtualenv_for_popos/">Reddit virtual environment discussion</a></b></div>
-    <div>Thoughts on virtual environment packages and configuration in PopOS. Some reports of version-specific issues.</div>
-    <li>
-    <div><b><a href="https://realpython.com/python-virtual-environments-a-primer/">Martin Breuss's virtual environment primer</a></b></div>
-    <div>How to work with virtual environments. Motivations for using virtual environments. Technical details about the internals of virtual environments.</div>
-    <li>
-    <div><b><a href="https://code.visualstudio.com/docs/python/linting">VSCode Marketplace linters</a></b></div>
-    <div>Explains how python linters work in VSCode. Lists several Microsoft provided linters and several community provided linters to try.</div>
-    </ul>
-
     <h2>Installation and virtual environment</h2>
     <p>For PopOS, install python-related packages with <code>apt</code> if necessary. To avoid conflicts with other locally run python projects that may require different versions of the same PyPI dependencies, set up a virtual environment.</p>
     <%bflib:codesnippet lang="bash">
@@ -123,4 +107,10 @@ deactivate
 
     <h2>Linter</h2>
     <p>I abandoned the idea of integrating a linter into the build process. It adds complication, and I expect only minimal participation by others. VSCode offers practical on-the-fly linter options intead.</p>
+</%block>
+<%block name="references">
+    <%bflib:reference title="Joshua Phuong Le's guide to python project structure" url="https://python.plainenglish.io/a-practical-guide-to-python-project-structure-and-packaging-90c7f7a04f95">Recommendations about directory structure, packaging the project, and installing it as a package. Explains some available options at each step.</%bflib:reference>
+    <%bflib:reference title="Reddit virtual environment discussion" url="https://www.reddit.com/r/pop_os/comments/1aj8uk0/installing_virtualenv_for_popos/">Thoughts on virtual environment packages and configuration in PopOS. Some reports of version-specific issues.</%bflib:reference>
+    <%bflib:reference title="Martin Breuss's virtual environment primer" url="https://realpython.com/python-virtual-environments-a-primer/">How to work with virtual environments. Motivations for using virtual environments. Technical details about the internals of virtual environments.</%bflib:reference>
+    <%bflib:reference title="VSCode Marketplace linters" url="https://code.visualstudio.com/docs/python/linting">Explains how python linters work in VSCode. Lists several Microsoft provided linters and several community provided linters to try.</%bflib:reference>
 </%block>

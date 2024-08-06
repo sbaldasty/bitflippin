@@ -10,26 +10,6 @@
     After installing Arch Linux, I got <code>google-chrome</code> from the AUR running by way of installing <code>sway</code>, <code>git</code>, and <code>yay</code>. I configured these packages only minimally for getting started purposes.
 </%block>
 <%block name="article">
-
-    <h2>References</h2>
-    <ul>
-    <li>
-    <div><b><a href="https://itsfoss.com/install-yay-arch-linux/">Abhishek Prakash's tutorial on installing yay</a></b></div>
-    <div>Straightforward installation instructions for <code>yay</code> on Arch Linux. Also contains instructions for updating <code>yay</code> and removing it.</div>
-    <li>
-    <div><b><a href="https://wiki.archlinux.org/title/Git">Arch wiki on git</a></b></div>
-    <div>Talks about installation and has usage examples. Lists many graphical front-ends available on Arch Linux.</div>
-    <li>
-    <div><b><a href="https://wiki.archlinux.org/title/Sway">Arch wiki on sway</a></b></div>
-    <div>How to install and configure <code>sway</code> on Arch Linux. Thorough and informative, but complimentary tutorials may help.</div>
-    <li>
-    <div><b><a href="https://www.jeremymorgan.com/tutorials/linux/how-to-install-google-chrome-arch-linux/">Jeremy Morgan's tutorial on installing Google Chrome</a></b></div>
-    <div>Covers how to install <code>google-chrome</code> on Arch Linux straight from the AUR, and alternatively with <code>yay</code>. Nothing new, but well put together.</div>
-    <li>
-    <div><b><a href="https://www.reddit.com/r/Fedora/comments/rkzp78/make_chrome_run_on_wayland_permanently/">Chrome on wayland</a></b></div>
-    <div>Redditors discuss additional configuration needed in some cases to start Chrome successully on wayland. Amalgamation of many little problems and solutions per usual.</div>
-    </ul>
-
     <h2>Installing sway</h2>
     <p>Chrome needs a graphical environment to run in, such as a wayland compositor like <code>sway</code>. Install <code>sway</code> and choose <code>gnu-free-fonts</code> when the installation process asks about a font. Other choices probably work fine. Also install <code>alacritty</code> which is a terminal for <code>sway</code>. Copy the default <code>sway</code> configuration file to the user home directory. Edit the configuration file to set <code>alacritty</code> as the default terminal. Launch sway. Open a terminal by pressing the <i>Win+Enter</i> keys together. Continue to the remaining steps in the <code>alacritty</code> terminal.</p>
     <%bflib:codesnippet lang="bash">
@@ -76,4 +56,11 @@ yay -S google-chrome
 google-chrome-stable --ozone-platform=wayland
     </%bflib:codesnippet>
     <p>Small usability gaps like having <code>sway</code> start on login, having <code>google-chrome-stable</code> launch without a terminal, and further customizations of <code>sway</code> still remain; however these steps are sufficient to get started.</p>
+</%block>
+<%block name="references">
+    <%bflib:reference title="Abhishek Prakash's tutorial on installing yay", url="https://itsfoss.com/install-yay-arch-linux/">Straightforward installation instructions for <code>yay</code> on Arch Linux. Also contains instructions for updating <code>yay</code> and removing it.</%bflib:reference>
+    <%bflib:reference title="Arch wiki on git" url="https://wiki.archlinux.org/title/Git">Talks about installation and has usage examples. Lists many graphical front-ends available on Arch Linux.</%bflib:reference>
+    <%bflib:reference title="Arch wiki on sway" url="https://wiki.archlinux.org/title/Sway">How to install and configure <code>sway</code> on Arch Linux. Thorough and informative, but complimentary tutorials may help.</%bflib:reference>
+    <%bflib:reference title="Jeremy Morgan's tutorial on installing Google Chrome" url="https://www.jeremymorgan.com/tutorials/linux/how-to-install-google-chrome-arch-linux/">Covers how to install <code>google-chrome</code> on Arch Linux straight from the AUR, and alternatively with <code>yay</code>. Nothing new, but well put together.</%bflib:reference>
+    <%bflib:reference title="Chrome on wayland" url="https://www.reddit.com/r/Fedora/comments/rkzp78/make_chrome_run_on_wayland_permanently/">Redditors discuss additional configuration needed in some cases to start Chrome successully on wayland. Amalgamation of many little problems and solutions per usual.</%bflib:reference>
 </%block>

@@ -12,25 +12,6 @@
 <%block name="article">
     <p>I drew from several sources. The sources all have slightly different goals and focus areas. Most offer a useful generality this document may lack.</p>
 
-    <h2>References</h2>
-    <ul>
-    <li>
-    <div><b><a href="https://wiki.archlinux.org/title/Installation_guide">Official installation guide</a></b></div>
-    <div>Authoritative and comprehensive, but also branches off in many directions. Complimentary resources demonstrating specific paths through the installation process can help.</div>
-    <li>
-    <div><b><a href="https://gist.github.com/mjkstra/96ce7a5689d753e7a6bdd92cdc169bae">Michele Gementi's installation guide</a></b></div>
-    <div>Primary resource after exploring many avenues because it treats an unencrypted <code>btrfs</code> filesystem. Concludes with a discussion of video drivers and preparation for playing games.</div>
-    <li>
-    <div><b><a href="https://tforgione.fr/posts/arch-linux-encrypted/">Thomas Forgione's installation guide</a></b></div>
-    <div>Uses <code>ext4</code> filesystems, but features an encrypted <code>/home</code> partition. Discusses <code>docker</code> configuration, and measures to ensure the compatibility of the installation with wake-on-lan.</div>
-    <li><div><b><a href="https://gist.github.com/myyc/9595b520a4c564bef8143a86582f1ea1">Myyc's installation guide</a></b></div>
-    <div>Single encrypted <code>btrfs</code> filesystem. Built in <code>systemd</code> bootloader instead of <code>grub</code>. Splash screen on startup and shutdown using <code>plymouth</code>. Covers setting up secure boot and hibernate.</div>
-    <li><div><b><a href="https://phoenixnap.com/kb/linux-commands-check-memory-usage">Vladimir Kaplarevic's swap post</a></b></div>
-    <div>Discusses swap partitions and the practices surrounding them that several major Linux distributions have landed on. Also contains useful information about memory usage and monitoring.</div>
-    <li><div><b><a href="https://forum.osdev.org/viewtopic.php?t=33029">Brendan and others on the initial ramdisk</a></b></div>
-    <div>Flow of control passes through a <i>bootloader</i> and an <i>initial ramdisk</i> before reaching the Linux kernel. Contributors discuss and critique why these components exist and what they do.</div>
-    </ul>
-
     <h2>Partitions</h2>
     <p>Hopefully already well understood, but always worth mentioning, these instructions delete all data on the disk. Device names may vary by system.</p>
     <%bflib:codesnippet lang="bash">
@@ -132,4 +113,12 @@ umount -R /mnt
 reboot
     </%bflib:codesnippet>
     <p>Remove the installation media and restart the laptop. If all goes well log in as <kbd>root</kbd>.</p>
+</%block>
+<%block name="references">
+    <%bflib:reference title="Official installation guide" url="https://wiki.archlinux.org/title/Installation_guide">Authoritative and comprehensive, but also branches off in many directions. Complimentary resources demonstrating specific paths through the installation process can help.</%bflib:reference>
+    <%bflib:reference title="Michele Gementi's installation guide" url="https://gist.github.com/mjkstra/96ce7a5689d753e7a6bdd92cdc169bae">Primary resource after exploring many avenues because it treats an unencrypted <code>btrfs</code> filesystem. Concludes with a discussion of video drivers and preparation for playing games.</%bflib:reference>
+    <%bflib:reference title="Thomas Forgione's installation guide" url="https://tforgione.fr/posts/arch-linux-encrypted/">Uses <code>ext4</code> filesystems, but features an encrypted <code>/home</code> partition. Discusses <code>docker</code> configuration, and measures to ensure the compatibility of the installation with wake-on-lan.</%bflib:reference>
+    <%bflib:reference title="Myyc's installation guide" url="https://gist.github.com/myyc/9595b520a4c564bef8143a86582f1ea1">Single encrypted <code>btrfs</code> filesystem. Built in <code>systemd</code> bootloader instead of <code>grub</code>. Splash screen on startup and shutdown using <code>plymouth</code>. Covers setting up secure boot and hibernate.</%bflib:reference>
+    <%bflib:reference title="Vladimir Kaplarevic's swap post" url="https://phoenixnap.com/kb/linux-commands-check-memory-usage">Discusses swap partitions and the practices surrounding them that several major Linux distributions have landed on. Also contains useful information about memory usage and monitoring.</%bflib:reference>
+    <%bflib:reference title="Brendan and others on the initial ramdisk" url="https://forum.osdev.org/viewtopic.php?t=33029">Flow of control passes through a <i>bootloader</i> and an <i>initial ramdisk</i> before reaching the Linux kernel. Contributors discuss and critique why these components exist and what they do.</%bflib:reference>
 </%block>

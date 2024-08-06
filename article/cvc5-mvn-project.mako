@@ -13,28 +13,6 @@
 <%block name="article">
     <p>Ideally, one would install the latest <code>cvc5</code> libraries and binaries using their operating system's package manager. They would then add the latest <code>cvc5</code> Java API maven artifact from Maven Central as a dependency in their <code>pom.xml</code>. However the latest Linux packages and the latest maven artifact currently lag significantly behind. A less ideal manual process can bridge the gap.</p>
 
-    <h2>References</h2>
-    <ul>
-    <li>
-    <div><b><a href="https://github.com/cvc5/cvc5">Github repository for cvc5</a></b></div>
-    <div>High level overview of what <code>cvc5</code> is and does. Includes links to documentation, installation instructions, and the official website.</div>
-    <li>
-    <div><b><a href="https://cvc5.github.io/docs/cvc5-1.1.2/api/java/java.html">Building the Java API</a></b></div>
-    <div>Official instructions on building the Java API from source and using it. This process deviates from the instructions after the install step.</div>
-    <li>
-    <div><b><a href="https://stackoverflow.com/questions/364114/can-i-add-jars-to-maven-2-build-classpath-without-installing-them">Adding jars without maven artifacts</a></b></div>
-    <div>Members of stackoverflow discuss workarounds to adding jars to maven projects when the jars do not have associated maven artifacts.</div>
-    <li>
-    <div><b><a href="https://packages.ubuntu.com/source/mantic/cvc5">Debian package for cvc5</a></b></div>
-    <div>Example of a <code>cvc5</code> package for a major Linux distribution, currently quite outdated.</div>
-    <li>
-    <div><b><a href="https://central.sonatype.com/artifact/io.github.p-org.solvers/cvc5">Maven artifact for cvc5</a></b></div>
-    <div>Page for <code>cvc5</code> on the Maven Central Repository. The artifact currently lags behind the latest release unfortunately.</div>
-    <li>
-    <div><b><a href="https://stackoverflow.com/questions/1734207/how-to-set-java-library-path-for-processing">Overriding the Java library path</a></b></div>
-    <div>Members of stackoverflow discuss how to override locations that Java checks for the libraries that bytecode needs to link to at runtime.</div>
-    </ul>
-
     <h2>Building the cvc5 libraries and Java API</h2>
     <p>I get errors when I try to build <code>cvc5</code> with the latest version of Java. Probably worth trying again after time has passed, but meanwhile install an older version of Java and temporarily point <code>$JAVA_HOME</code> at it. Then follow the official build instructions.</p>
     <%bflib:codesnippet lang="bash">
@@ -106,4 +84,12 @@ java -Djava.library.path="/home/bob/src/cvc5/build/install/lib" -jar target/MyPr
     <p>Be sure to replace the path to the project jar appropriately. The <code>java.library.path</code> must be an absolute path.</p>
     <h2>Onboarding other developers</h2>
     <p>The process is much simpler for other developers who want to work on the project. They only need the <code>cvc5</code> library files. They can build <code>cvc5</code> without the <code>--java-bindings</code> switch, without installing an older version of Java for compatibility. It might be possible to copy the compiled libraries to other machines and bypass building <code>cvc5</code> altogether, but I have not tried.</p>
+</%block>
+<%block name="references">
+    <%bflib:reference title="Github repository for cvc5" url="https://github.com/cvc5/cvc5">High level overview of what <code>cvc5</code> is and does. Includes links to documentation, installation instructions, and the official website.</%bflib:reference>
+    <%bflib:reference title="Building the Java API" url="https://cvc5.github.io/docs/cvc5-1.1.2/api/java/java.html">Official instructions on building the Java API from source and using it. This process deviates from the instructions after the install step.</%bflib:reference>
+    <%bflib:reference title="Adding jars without maven artifacts" url="https://stackoverflow.com/questions/364114/can-i-add-jars-to-maven-2-build-classpath-without-installing-them">Members of stackoverflow discuss workarounds to adding jars to maven projects when the jars do not have associated maven artifacts.</%bflib:reference>
+    <%bflib:reference title="Debian package for cvc5" url="https://packages.ubuntu.com/source/mantic/cvc5">Example of a <code>cvc5</code> package for a major Linux distribution, currently quite outdated.</%bflib:reference>
+    <%bflib:reference title="Maven artifact for cvc5" url="https://central.sonatype.com/artifact/io.github.p-org.solvers/cvc5">Page for <code>cvc5</code> on the Maven Central Repository. The artifact currently lags behind the latest release unfortunately.</%bflib:reference>
+    <%bflib:reference title="Overriding the Java library path" url="https://stackoverflow.com/questions/1734207/how-to-set-java-library-path-for-processing">Members of stackoverflow discuss how to override locations that Java checks for the libraries that bytecode needs to link to at runtime.</%bflib:reference>
 </%block>

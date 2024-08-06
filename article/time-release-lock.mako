@@ -9,16 +9,6 @@
     I found a healthier relationship to chocolate and other sugary snacks through the use of a <em>commitment device</em> that helped me make responsible choices on behalf of my future self.
 </%block>
 <%block name="article">
-
-    <h2>References</h2>
-    <ul>
-    <li><div><b><a href="https://medium.com/behavior-design-hub/your-commitment-devices-database-35a54df3a64f">Commitment devices</a></b></div><div>Brief introduction to what commitment devices are and are not. Examples of commitment devices.</div>
-    <li><div><b><a href="https://www.amazon.com/Display-Multi-Function-Electronic-Rechargeable-Padlock/dp/B08TV495HL">Time release lock purchase page</a></b></div><div>Product similar to the time release lock I bought.</div>
-    <li><div><b><a href="https://www.ferrerorocher.com/">Ferrero Rocher</a></b></div><div>Hazelnut surrounded by nutella in a crunchy chocolatey shell with nuts on its surface. Not the most environmentally friendly packaging.</div>
-    <li><div><b><a href="https://www.ghirardelli.com/60-cacao-bittersweet-chocolate-premium-baking-chips-12-bags-61274cs">Extra dark chocolate baking chips</a></b></div><div>Normally used in cooking, but a good standalone snack as well. They blend nicely with nutella.</div>
-    <li><div><b><a href="https://sanderscandy.com/products/original-dark-chocolate-sea-salt-caramels-tub-32-oz">Sanders Sea Salt Caramels</a></b></div><div>Caramel inside, not painfully chewy. Covered with dark chocolate and small grains of salt. Relatively cheap at Costco.</div>
-    </ul>
-
     <h2>Background</h2>
     <p>I feel grateful to live in a time and place where food is abundant. In theory, I could enjoy eating just enough food. I could enjoy sharing meals with family and friends. I could enjoy the health benefits good nutrition brings. In practice, the draw toward delicious tastes is powerful. Sugar especially offers a strange temporarily escape from stress and sadness. In my younger years I ate chocolate by the bar. I ate ice cream by the carton. I ate it in the morning. I ate it alone at night. Together with aging and a more sedentary lifestyle, my choices began to affect energy level and mood. Eventually they began to affect my weight.</p>
     <p>Even though I wanted to eat less sugar, I could not control myself. Willpower helped somewhat. People encouraged me, which helped somewhat. I eventually learned about commitment devices - mechanisms that enabled people to make a choice in the present to limit what choices they have in the future. A time release lock is a classic example of a commitment device. It is a lock that requires no key or combination; instead, it opens automatically when a timer expires. Time release locks are often used to control access to cigarettes and addictive prescription medicines. They work well for junk food too.</p>
@@ -48,4 +38,11 @@
     <h2>Reflection</h2>
     <p>My future self sometimes experiences cravings. He sometimes feels upset that the rest the junk food is locked up. When that happens I take a little time to remember how my past self limited the choices I have now because he cared about me, and how in the morning I will get to choose more junk food and then make the same commitment all over again, limiting the choices my next future self will have because I care about him.</p>
 
+</%block>
+<%block name="references">
+    <%bflib:reference title="Commitment devices" url="https://medium.com/behavior-design-hub/your-commitment-devices-database-35a54df3a64f">Brief introduction to what commitment devices are and are not. Examples of commitment devices.</%bflib:reference>
+    <%bflib:reference title="Time release lock purchase page" url="https://www.amazon.com/Display-Multi-Function-Electronic-Rechargeable-Padlock/dp/B08TV495HL">Product similar to the time release lock I bought.</%bflib:reference>
+    <%bflib:reference title="Ferrero Rocher" url="https://www.ferrerorocher.com/">Hazelnut surrounded by nutella in a crunchy chocolatey shell with nuts on its surface. Not the most environmentally friendly packaging.</%bflib:reference>
+    <%bflib:reference title="Extra dark chocolate baking chips" url="https://www.ghirardelli.com/60-cacao-bittersweet-chocolate-premium-baking-chips-12-bags-61274cs">Normally used in cooking, but a good standalone snack as well. They blend nicely with nutella.</%bflib:reference>
+    <%bflib:reference title="Sanders Sea Salt Caramels" url="https://sanderscandy.com/products/original-dark-chocolate-sea-salt-caramels-tub-32-oz">Caramel inside, not painfully chewy. Covered with dark chocolate and small grains of salt. Relatively cheap at Costco.</%bflib:reference>
 </%block>

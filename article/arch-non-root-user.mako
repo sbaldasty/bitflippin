@@ -12,22 +12,6 @@
 <%block name="article">
     <p>Traditionally in Linux systems one creates a non-root user for regular operations. Even in cases where only one person uses the system, having a safeguard against accidentally running dangerous commands as root is nice.</p>
 
-    <h2>References</h2>
-    <ul>
-    <li>
-    <div><b><a href="https://bitflippin.com/article/arch-p52s/">Installation guide references</a></b></div>
-    <div>The installation guides referenced in the initial Arch installation article cover setting up non-root users rather than treating it as a separate process.</div>
-    <li>
-    <div><b><a href="https://wiki.archlinux.org/title/Users_and_groups#User_management">Arch wiki on user management</a></b></div>
-    <div>The arch wiki documents how to add users. It includes several examples.</div>
-    <li>
-    <div><b><a href="https://wiki.archlinux.org/title/Sudo">Arch wiki on sudo</a></b></div>
-    <div>How to install and configure <code>sudo</code> to allow non-root users to run commands as root.</div>
-    <li>
-    <div><b><a href="https://wiki.archlinux.org/title/Polkit">Arch wiki on polkit</a></b></div>
-    <div>How to install and configure <code>polkit</code>. Of only tangential interest to this task.</div>
-    </ul>
-
     <h2>Adding the user</h2>
     <p>Add a new user with a home directory and <code>bash</code> for a login shell. Set the new user's password. Optionally exit the root session and test logging in as the new user.</p>
     <%bflib:codesnippet lang="bash">
@@ -56,4 +40,10 @@ usermod -a -G wheel MyUsername
 pacman -S polkit
     </%bflib:codesnippet>
     <p>Surprisingly without enabling any service the non-root user now has the ability to use the <code>shutdown</code> and <code>reboot</code> commands. Perhaps they can now run other commands as well. There are certainly many things I still do not understand about <code>polkit</code>.</p>
+</%block>
+<%block name="references">
+    <%bflib:reference title="Installation guide references" url="https://bitflippin.com/article/arch-p52s/">The installation guides referenced in the initial Arch installation article cover setting up non-root users rather than treating it as a separate process.</%bflib:reference>
+    <%bflib:reference title="Arch wiki on user management" url="https://wiki.archlinux.org/title/Users_and_groups#User_management">The arch wiki documents how to add users. It includes several examples.</%bflib:reference>
+    <%bflib:reference title="Arch wiki on sudo" url="https://wiki.archlinux.org/title/Sudo">How to install and configure <code>sudo</code> to allow non-root users to run commands as root.</%bflib:reference>
+    <%bflib:reference title="Arch wiki on polkit" url="https://wiki.archlinux.org/title/Polkit">How to install and configure <code>polkit</code>. Of only tangential interest to this task.</%bflib:reference>
 </%block>

@@ -62,9 +62,7 @@
 </%def>
 
 <%def name="gallery()">
-    <div class="gallery">
-    ${capture(caller.body)}
-    </div>
+    <div class="gallery">${capture(caller.body)}</div>
 </%def>
 
 <%def name="photo(fn, fid, x, y, width, angle)">
@@ -103,4 +101,10 @@
     </div>
     <div>${template.module.render_summary(context)}</div>
     </div>
+</%def>
+
+<%def name="reference(title, url)">
+    <li>
+    <div><b><a href="${url}">${title}</a></b></div>
+    <div>${capture(caller.body)}</div>
 </%def>
