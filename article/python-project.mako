@@ -46,14 +46,7 @@ deactivate
 
     <h2>PyPI dependencies</h2>
     <p>Create a directory to house <code>myproject</code> and navigate there. Optionally make the directory a <code>git</code> repository. List all the <code>myproject</code> dependencies and their versions in a file called <code>requirements.txt</code> in the top level of the repository.</p>
-    <%bflib:codesnippet title="myproject/requirements.txt" lang="text">
-mpyc==0.10
-numpy==2.0.1
-scikit-learn==1.5.1
-matplotlib==3.9.1
-pandas==2.2.2
-pytest==8.3.2
-    </%bflib:codesnippet>
+    <%bflib:codesnippet title="myproject/requirements.txt" lang="text" file="code/python-project/requirements"/>
     <p>Note the <code>pytest</code> dependency. Be sure to include <code>pytest</code> to follow along with the unit testing section. All the other dependencies are for example purposes. Install the dependencies all at once into the virtual environment using <code>pip</code>. This approach allows others to easily start using <code>myproject</code> too.</p>
     <%bflib:codesnippet lang="bash">
 python -m pip install -r requirements.txt
@@ -61,29 +54,11 @@ python -m pip install -r requirements.txt
 
     <h2>Directory structure</h2>
     <p>Create a directory called <code>myproject</code> to house the project's source code - even if the project directory is already called <code>myproject</code> create another <code>myproject</code> directory inside it. Naming this new directory <code>myproject</code> will cause the <code>pip</code> package to be named after the project too. Thus the imports will be more intuitive, especially in the unit tests which live externally to the package. Add <code>demo.py</code> to the new <code>myproject</code> directory.</p>
-    <%bflib:codesnippet title="myproject/myproject/demo.py" lang="python">
-def return_true():
-    return True
-
-if __name__ == '__main__':
-    print('You ran the demo')
-    </%bflib:codesnippet>
+    <%bflib:codesnippet title="myproject/myproject/demo.py" lang="python" file="code/python-project/demo"/>
     <p>Back in the top level directory create a directory called <code>tests</code>. Inside the new directory create a file called <code>test_demo.py</code>. Note at this stage the import is broken because <code>tests</code> can only see subpackages.</p>
-    <%bflib:codesnippet title="myproject/tests/test_demo.py" lang="python">
-import myproject.demo
-
-def test_return_true():
-    assert myproject.demo.return_true() == True
-    </%bflib:codesnippet>
+    <%bflib:codesnippet title="myproject/tests/test_demo.py" lang="python" file="code/python-project/testdemo"/>
     <p>Back in the top level directory create a file called <code>setup.py</code>. This file helps <code>pip</code> make <code>myproject</code> into a package.</p>
-    <%bflib:codesnippet title="myproject/setup.py" lang="python">
-from setuptools import setup
-from setuptools import find_namespace_packages
-
-setup(name='myproject',
-    version='1.0',
-    packages=find_namespace_packages(include=['myproject']))
-    </%bflib:codesnippet>
+    <%bflib:codesnippet title="myproject/setup.py" lang="python" file="code/python-project/setup"/>
     <p>Install <code>myproject</code> into the virtual environment as a package with <code>pip</code>. Subsequent changes to the source code of <code>myproject</code> automatically propagate to the installed package without needing to run <code>pip</code> again.</p>
     <%bflib:codesnippet lang="bash">
 pip install -e .

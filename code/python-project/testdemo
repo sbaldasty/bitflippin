@@ -1,0 +1,4 @@
+import myproject.demo
+
+def test_return_true():
+    assert myproject.demo.return_true() == True
