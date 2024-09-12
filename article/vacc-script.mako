@@ -33,8 +33,8 @@ vaccjob bobsnetid ~/.sshpasswds/uvm ~/src/vj vj/job.sh remoteout ~/localout
     </%bflib:codesnippet>
     <p>Due to its length and cumbersome parameters, Bob may choose to save this line as a script of its own for easy reuse. In the happy path, <code>vaccjob</code> will</p>
     <ol>
-    <li>Recursively copy <code>~/program</code> to Bob's home directory on the VACC
-    <li>Submit the job by running <code>~/program/job.sh</code>
+    <li>Recursively copy <code>~/vj</code> to Bob's home directory on the VACC
+    <li>Submit the job by running <code>~/vj/job.sh</code>
     <li>Create a file <code>~/.vaccjobid</code> locally containing the job ID
     <li>Poll the job status every 10 minutes until the job completes
     <li>Recursively copy <code>~/remoteout</code> from the VACC to <code>~/localout</code> on Bob's computer
