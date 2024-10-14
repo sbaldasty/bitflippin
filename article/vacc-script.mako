@@ -27,7 +27,7 @@ sudo pacman -S openssh sshpass
     </%bflib:codesnippet>
 
     <h2>Workflow</h2>
-    <p>Bob the developer has UVM NetID <i>bobsnetid</i>, and a password saved in <code>~/.sshpasswds/uvm</code>. Bob writes a program he wants run on <code>bluemoon</code> on the VACC. The program and associated files are in the <code>~/src/vj</code> directory locally. The job script including any necesssary SLURM directives is <code>~/src/vj/job.sh</code> locally. Bob designed the program to save output files in the <code>~/remoteout</code> directory. Bob wants the to have any output in the <code>~/localout</code> directory locally when the job finishes. Bob runs</p>
+    <p>Bob the developer has UVM NetID <i>bobsnetid</i>, and a password saved in <code>~/.sshpasswds/uvm</code>. Bob writes a program he wants run on the VACC. The program and associated files are in the <code>~/src/vj</code> directory locally. The job script including any necesssary SLURM directives is <code>~/src/vj/job.sh</code> locally. Bob designed the program to save output files in the <code>~/remoteout</code> directory. Bob wants the to have any output in the <code>~/localout</code> directory locally when the job finishes. Bob runs</p>
     <%bflib:codesnippet lang="bash">
 vaccjob bobsnetid ~/.sshpasswds/uvm ~/src/vj vj/job.sh remoteout ~/localout
     </%bflib:codesnippet>
@@ -47,7 +47,7 @@ vaccjob bobsnetid ~/.sshpasswds/uvm ~/src/vj vj/job.sh remoteout ~/localout
     <%bflib:codesnippet title="vaccjob" lang="bash" file="code/vacc-script/vaccjob"/>
 
     <h2>Shortcomings</h2>
-    <p>Sometimes a harmless error message about an undefined job id appears at the end. I think this happens when the job has been terminated long enough for the SLURM to forget what its id was. Also <code>vaccjob</code> is unaware of whether the job finished successfully or not. It tries to retrieve the output either way.</p>
+    <p>On the firest time using <code>ssh</code> to access the VACC, the client may note that the host could not be verified and prompt the user to add it to a known list. This behavior breaks `sshpass`. The solution is to `ssh` into the VACC first, add it to the known hosts, and then continue with the process. Sometimes a harmless error message about an undefined job id appears at the end. I think this happens when the job has been terminated long enough for the SLURM to forget what its id was. Also <code>vaccjob</code> is unaware of whether the job finished successfully or not. It tries to retrieve the output either way.</p>
 
 </%block>
 <%block name="references">
