@@ -82,8 +82,6 @@ java -jar target/MyProject-1.0-SNAPSHOT-jar-with-dependencies.jar
 java -Djava.library.path="/home/bob/src/cvc5/build/install/lib" -jar target/MyProject-1.0-SNAPSHOT-jar-with-dependencies.jar
     </%bflib:codesnippet>
     <p>Be sure to replace the path to the project jar appropriately. The <code>java.library.path</code> must be an absolute path.</p>
-    <h2>Onboarding other developers</h2>
-    <p>The process is much simpler for other developers who want to work on the project. They only need the <code>cvc5</code> library files. They can build <code>cvc5</code> without the <code>--java-bindings</code> switch, without installing an older version of Java for compatibility. It might be possible to copy the compiled libraries to other machines and bypass building <code>cvc5</code> altogether, but I have not tried.</p>
 </%block>
 <%block name="references">
     <%bflib:reference title="Github repository for cvc5" url="https://github.com/cvc5/cvc5">High level overview of what <code>cvc5</code> is and does. Includes links to documentation, installation instructions, and the official website.</%bflib:reference>
